@@ -10,15 +10,19 @@ module.exports = {
     '@vue/airbnb',
     'plugin:prettier/recommended',
     'prettier',
+    'prettier/react',
   ],
   rules: {
     'prettier/prettier': [
       'error',
       {
-        singleQuote: true,
         semi: false,
+        useTabs: false,
+        singleQuote: true,
         trailingComma: 'all',
         bracketSpacing: true,
+        jsxBracketSameLine: true,
+        parser: 'flow',
       },
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
