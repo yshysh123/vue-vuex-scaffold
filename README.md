@@ -73,26 +73,6 @@
 yarn start
 ```
 
-最初没有后端接口支持时，使用本地 nodejs 启动 express 提供后端接口。
-
-- 后端接口联调阶段
-  若有后端提供 swiagger 接口，可修改 webpack.config.babel.js 中的 proxyTargets 变量 remote 属性，指向后端接口域名。
-  然后用命令启动开发模式。
-
-```
-yarn dev:remote
-```
-
-此时基本不会再用本地模拟接口，可将 package.json 中的 script 中的 start 改为
-"start": "yarn run dev:remote | yarn run server",
-继续用 `yarn start`来开发项目。
-
-- 打包生成测试环境代码，登录环境为http://test.ssa.jd.com/sso/login
-
-```
-yarn build:test
-```
-
 - 发布到生产环境。
 
 ```
