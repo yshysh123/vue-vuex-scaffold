@@ -1,4 +1,4 @@
-/** @format */
+const webpackResolve = require('./build/webpackResolve')
 
 module.exports = {
   root: true,
@@ -10,8 +10,8 @@ module.exports = {
     '@vue/airbnb',
     'plugin:prettier/recommended',
     'prettier',
-    'prettier/react',
   ],
+  plugins: ['html', 'vue'],
   rules: {
     'prettier/prettier': [
       'error',
@@ -21,7 +21,6 @@ module.exports = {
         singleQuote: true,
         trailingComma: 'all',
         bracketSpacing: true,
-        jsxBracketSameLine: true,
         parser: 'flow',
       },
     ],
@@ -31,5 +30,14 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint',
+  },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: {
+          resolve: webpackResolve,
+        },
+      },
+    },
   },
 }
