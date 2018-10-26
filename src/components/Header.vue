@@ -1,0 +1,157 @@
+<template>
+  <div class="header">
+    <div class="header-logo">
+      <div class="collapse-btn"
+        @click="collapseChage">
+        <i class="el-icon-menu"></i>
+      </div>
+      <div class="logo">项目主体</div>
+    </div>
+    <div class="menu">
+      <el-menu :default-active="activeIndex2"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#393939"
+        text-color="#fff"
+        active-text-color="#ffd04b">
+        <el-menu-item v-for="item in $store.state.HeaderStore.headerMenu"
+          :key="item.name"
+          :index="String(item.name)">{{item.fullName}}</el-menu-item>
+      </el-menu>
+    </div>
+    <div class="user-info">
+      <el-dropdown trigger="click"
+        @command="handleCommand">
+        <span class="el-dropdown-link">
+          {{username}}
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item command="loginout">退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
+  </div>
+</template>
+<script>
+import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'
+import { getHeaderKeyByRouter } from 'tool/getHeaderIndexByRouter'
+export default {
+  data() {
+    return {
+      collapse: false,
+      name: 'linxin',
+      activeIndex2: '1',
+    }
+  },
+  mounted() {
+    const { HeaderStore } = this.$store.state
+    if (this.$route.path === '/') {
+      this.$router.push(HeaderStore.headerMenu[0].children[0].children[0].name)
+    }
+    this.activeIndex2 = getHeaderKeyByRouter(
+      HeaderStore.headerMenu,
+      this.$route.path.replace('/', ''),
+    )
+  },
+  computed: {
+    username() {
+      let username = localStorage.getItem('ms_username')
+      return username ? username : this.name
+    },
+  },
+  methods: {
+    handleCommand(command) {
+      if (command == 'loginout') {
+        localStorage.removeItem('ms_username')
+        this.$router.push('/login')
+      }
+    },
+    collapseChage() {
+      this.collapse = !this.collapse
+      this.$store.commit('setCollapse', this.collapse)
+    },
+    handleSelect(key, keyPath) {
+      let siderMenu = getSiderByHeaderIndex(
+        this.$store.state.HeaderStore.headerMenu,
+        key,
+      )
+      this.$store.commit('setItems', siderMenu)
+      if (siderMenu[0] && siderMenu[0].children) {
+        this.$router.push(siderMenu[0].children[0].name)
+      } else {
+        this.$router.push(siderMenu[0].name)
+      }
+    },
+  },
+}
+</script>
+<style lang="less" scoped type="text/css">
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  font-size: 22px;
+  line-height: 60px;
+  color: #fff;
+  background: #393939;
+
+  .header-logo {
+    float: left;
+    width: 200px;
+  }
+
+  .collapse-btn {
+    float: left;
+    padding: 0 21px;
+    cursor: pointer;
+  }
+
+  .collapse-btn:hover {
+    background: rgb(40, 52, 70);
+  }
+
+  .logo {
+    float: left;
+    text-align: left;
+  }
+
+  .menu {
+    float: left;
+  }
+
+  .user-info {
+    float: right;
+    font-size: 16px;
+    line-height: 60px;
+    color: #fff;
+
+    .el-dropdown-link {
+      position: relative;
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .user-logo {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+
+  .el-dropdown-menu__item {
+    text-align: center;
+  }
+}
+</style>

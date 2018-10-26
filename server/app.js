@@ -29,6 +29,10 @@ const me = require('./routes/me')
 
 app.use('/', me)
 
+const menu = require('./routes/menu')
+
+app.use('/', menu)
+
 const server = app.listen(8089, 'localhost', () => {
   const host = server.address().address
   const { port } = server.address()

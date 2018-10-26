@@ -1,33 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">首页</router-link> |
-      <router-link to="/about">关于</router-link>
-    </div>
+  <div id="app"
+    :class="$store.state.SiderStore.collapse?'collapseY':'collapseN'">
+    <headerVue></headerVue>
+    <siderVue></siderVue>
     <router-view/>
   </div>
 </template>
 
-<style lang="less">
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+import headerVue from './components/Sider.vue'
+import siderVue from './components/Header.vue'
+
+export default {
+  name: 'app',
+  components: {
+    HelloWorld,
+    headerVue,
+    siderVue,
+  },
+}
+</script>
+
+<style>
 #app {
-  position: relative;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  margin-top: 60px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.collapseY {
+  padding: 60px 0 0 64px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.collapseN {
+  padding: 60px 0 0 200px;
 }
 </style>

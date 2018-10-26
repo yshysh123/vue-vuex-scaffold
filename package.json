@@ -3,18 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "yarn run dev | yarn run server",
-    "dev": "vue-cli-service serve",
-    "server": "cross-env NODE_ENV=development npx nodemon ./server/app.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve",
+    "server": "cross-env NODE_ENV=development npx nodemon ./server/app.js",
+    "start": "yarn run dev | yarn run server",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "commit": "git-cz",
+    "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s -r 10"
   },
   "dependencies": {
+    "@commitlint/prompt-cli": "^7.2.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "commitizen": "^3.0.4",
+    "commitlint": "^7.2.1",
+    "conventional-changelog-cli": "^2.0.5",
     "cookie-parser": "^1.4.3",
+    "cz-conventional-changelog": "^2.1.0",
+    "element-ui": "^2.4.5",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "opn": "^5.4.0",
@@ -22,7 +30,8 @@
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "yorkie": "^2.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
@@ -35,6 +44,7 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "babel-plugin-component": "^1.1.1",
     "cross-env": "^5.2.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-html": "^4.0.6",
@@ -52,8 +62,13 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^1.0.0",
     "stylelint-processor-html": "^1.0.0",
+    "vue-cli-plugin-element": "^1.0.0",
     "vue-template-compiler": "^2.5.17",
     "webpack-cli": "^3.1.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "npx commitlint -E GIT_PARAMS"
   },
   "lint-staged": {
     "*.js": [

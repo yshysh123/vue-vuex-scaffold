@@ -12,15 +12,6 @@ export default {
       me: {},
     }
   },
-  mounted() {
-    this.$ajax
-      .get(`user/getUserInfo`)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  },
+  mounted() {},
 }
 </script>
