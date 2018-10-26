@@ -19,6 +19,7 @@ module.exports = {
           secure: false,
         },
       },
+      before() {},
     },
     resolve: {
       ...devServerConfig,

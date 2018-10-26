@@ -13,14 +13,7 @@ const router = {
       name: 'home',
       component: Home,
     },
-    {
-      path: '/user',
-      name: 'user',
-      component: () =>
-        import(/* webpackChunkName: "user" */ './views/User.vue'),
-    },
-
-    /* 本路由文件由src/route.template.js文件生成，不要手动更改 */
+    /* template-placeholder */
   ],
 }
 

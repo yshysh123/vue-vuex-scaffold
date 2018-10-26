@@ -1,5 +1,7 @@
 const path = require('path')
+const cp = require('child_process')
 
+cp.fork('./build/generateRoute.js')
 // 确保不同环境传入的路径是一样的
 const resolvePath = relativePath =>
   path.resolve(`${__dirname}/..`, relativePath)
