@@ -1,5 +1,8 @@
 ## vue 项目前端脚手架
 
+### feature
+
+* follow latest vue, vue-cli, vue-router vuex webpack version
 
 ### 常用命令
 
