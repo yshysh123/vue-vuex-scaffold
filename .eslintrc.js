@@ -11,7 +11,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
   ],
-  plugins: ['html', 'vue'],
+  plugins: ['html', 'vue', 'prettier'],
   rules: {
     'prettier/prettier': [
       'error',

@@ -6,7 +6,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve",
-    "server": "cross-env NODE_ENV=development npx nodemon ./server/app.js",
+    "server": "cross-env NODE_ENV=development npx nodemon npx babel-node ./server/app.js",
     "start": "yarn run server | yarn run dev",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
@@ -37,6 +37,8 @@
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/node": "^7.0.0",
     "@vue/cli-plugin-babel": "^3.0.5",
     "@vue/cli-plugin-e2e-nightwatch": "^3.0.5",
     "@vue/cli-plugin-eslint": "^3.0.5",

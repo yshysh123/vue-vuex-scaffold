@@ -14,6 +14,12 @@ const router = {
       component: Home,
     },
     {
+      path: '/home',
+      name: 'home',
+      component: () =>
+        import(/* webpackChunkName: "home" */ './views/Home.vue'),
+    },
+    {
       path: '/user',
       name: 'user',
       component: () =>

@@ -25,15 +25,7 @@ app.all('*', (req, res, next) => {
   else next();
 });
 
-const me = require('./routes/me')
-
-app.use('/', me)
-
-const menu = require('./routes/menu')
-
-app.use('/', menu)
-
-/* 本路由文件由server/server.template.js文件生成，不要手动更改 */
+/* server-placeholder */
 
 const server = app.listen(8089, 'localhost', () => {
   const host = server.address().address

@@ -5,17 +5,8 @@ const routeTemplate = fs
   .readFileSync('./src/router.remplate.js')
   .toString('utf8')
 
-const routes = fs
-  .readdirSync('./src/views')
-  .filter(file => {
-    // Home在模板中已经定义为主路由
-    if (file === 'Home.vue') {
-      return false
-    }
-    return true
-  })
-  .map(
-    route => `{
+const routes = fs.readdirSync('./src/views').map(
+  route => ` {
       path: '/${lowerFirst(route.split('.')[0])}',
       name: '${lowerFirst(route.split('.')[0])}',
       component: () =>
@@ -23,7 +14,7 @@ const routes = fs
           route.split('.')[0],
         )}" */ './views/${route.split('.')[0]}.vue'),
     }`,
-  )
+)
 
 const templatePlaceholder = routeTemplate.replace(
   '/* template-placeholder */',

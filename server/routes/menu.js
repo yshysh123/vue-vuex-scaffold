@@ -23,6 +23,21 @@ router.get('/menu/getMenuData', (req, res) => {
       orderNo: 1,
       children: [
         {
+          resId: 67,
+          resType: 2,
+          name: 'Home',
+          fullName: '首页',
+          icon: null,
+          url: '/Home',
+          pid: 63,
+          level: 3,
+          status: 1,
+          remark: 'Home',
+          siteId: 5,
+          orderNo: 411,
+          children: null,
+        },
+        {
           resId: 63,
           resType: 5,
           name: 'Menu1_2',
