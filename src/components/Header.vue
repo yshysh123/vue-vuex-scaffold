@@ -36,6 +36,7 @@
 <script>
 import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'
 import { getHeaderKeyByRouter } from 'tool/getHeaderIndexByRouter'
+import { setTimeout } from 'timers'
 export default {
   data() {
     return {
@@ -44,15 +45,27 @@ export default {
       activeIndex2: '1',
     }
   },
-  mounted() {
+  created() {
     const { HeaderStore } = this.$store.state
     if (this.$route.path === '/') {
-      this.$router.push(HeaderStore.headerMenu[0].children[0].children[0].name)
+      console.log(HeaderStore.headerMenu[0])
+      this.$router.push(
+        HeaderStore.headerMenu[0].children[0].name
+          ? HeaderStore.headerMenu[0].children[0].name
+          : HeaderStore.headerMenu[0].children[0].children[0].name,
+      )
+      this.activeIndex2 = getHeaderKeyByRouter(
+        HeaderStore.headerMenu,
+        HeaderStore.headerMenu[0].children[0].name
+          ? HeaderStore.headerMenu[0].children[0].name
+          : HeaderStore.headerMenu[0].children[0].children[0].name,
+      )
+    } else {
+      this.activeIndex2 = getHeaderKeyByRouter(
+        HeaderStore.headerMenu,
+        this.$route.path.replace('/', ''),
+      )
     }
-    this.activeIndex2 = getHeaderKeyByRouter(
-      HeaderStore.headerMenu,
-      this.$route.path.replace('/', ''),
-    )
   },
   computed: {
     username() {
