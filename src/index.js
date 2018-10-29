@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from './tool/axios'
+import './style/index.less'
 import './registerServiceWorker'
 import './plugins/element'
 

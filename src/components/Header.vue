@@ -48,7 +48,6 @@ export default {
   created() {
     const { HeaderStore } = this.$store.state
     if (this.$route.path === '/') {
-      console.log(HeaderStore.headerMenu[0])
       this.$router.push(
         HeaderStore.headerMenu[0].children[0].name
           ? HeaderStore.headerMenu[0].children[0].name

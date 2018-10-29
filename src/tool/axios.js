@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Vue from 'vue'
+import { emitter as soundEmitter } from '../components/SoundEffect.vue'
 
 axios.interceptors.request.use(
   config => {
@@ -6,15 +8,27 @@ axios.interceptors.request.use(
     config.url = `/api/${config.url}`
     return config
   },
-  err =>
-    // Message.error({ message: '请求超时!' })
-    Promise.resolve(err),
+  err => {
+    Vue.prototype.$notify.error({
+      title: '内部错误',
+      message: err,
+      duration: 3000,
+    })
+    soundEmitter.emit('failure')
+  },
 )
 
 axios.interceptors.response.use(
   res => {
     if (res.data.code === '200') {
-      // Message.error({ message: data.data.msg })
+      soundEmitter.emit('success')
+      if (soundEmitter.emit('success')) {
+        Vue.prototype.$notify.success({
+          title: '操作成功',
+          message: res.data.message,
+          duration: 3000,
+        })
+      }
       return res.data.data
     }
     return null
@@ -27,7 +41,12 @@ axios.interceptors.response.use(
     } else {
       // Message.error({ message: '未知错误!' })
     }
-    return Promise.resolve(err)
+    Vue.prototype.$notify.error({
+      title: '接口错误',
+      message: err.title || err.toString(),
+      duration: 3000,
+    })
+    soundEmitter.emit('failure')
   },
 )
 

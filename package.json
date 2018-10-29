@@ -1,6 +1,7 @@
 {
-  "name": "my-project",
+  "name": "vue-vuex-scaffold",
   "version": "0.1.0",
+  "description": "vue vuex vue-router scaffold",
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
@@ -12,6 +13,12 @@
     "test:unit": "vue-cli-service test:unit",
     "commit": "git-cz",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s -r 10"
+  },
+  "author": "389636851@qq.com",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yshysh123/vue-vuex-scaffold.git"
   },
   "dependencies": {
     "@commitlint/prompt-cli": "^7.2.1",
@@ -53,11 +60,13 @@
     "babel-plugin-component": "^1.1.1",
     "cross-env": "^5.2.0",
     "eslint-config-prettier": "^3.1.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-html": "^4.0.6",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.26.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react-native": "^3.5.0",
+    "jest": "^23.6.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "lint-staged": "^7.2.2",

@@ -4,18 +4,19 @@
     <headerVue></headerVue>
     <siderVue></siderVue>
     <router-view/>
+    <SoundEffect />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SoundEffect from '@/components/SoundEffect.vue'
 import headerVue from './components/Sider.vue'
 import siderVue from './components/Header.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    SoundEffect,
     headerVue,
     siderVue,
   },
