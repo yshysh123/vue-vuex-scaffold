@@ -3,7 +3,9 @@
     :class="$store.state.SiderStore.collapse?'collapseY':'collapseN'">
     <headerVue></headerVue>
     <siderVue></siderVue>
-    <router-view/>
+    <transition :name="transitionName">
+      <router-view class="Router" />
+    </transition>
     <SoundEffect />
   </div>
 </template>
@@ -15,10 +17,22 @@ import siderVue from './components/Header.vue'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      transitionName: 'slide-left',
+    }
+  },
   components: {
     SoundEffect,
     headerVue,
     siderVue,
+  },
+  watch: {
+    $route(to, from) {
+      const toDepth = to.path.split('/').length
+      const fromDepth = from.path.split('/').length
+      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    },
   },
 }
 </script>
@@ -31,6 +45,24 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.Router {
+  position: absolute;
+  width: calc(100% - 200px);
+  transition: all 0.8s ease;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-100% 0);
 }
 
 .collapseY {

@@ -20,11 +20,27 @@
           :index="String(item.name)">{{item.fullName}}</el-menu-item>
       </el-menu>
     </div>
+    <div class="language">
+      <el-dropdown trigger="click"
+        class='international'
+        @command="handleSetLanguage">
+        <div>
+          <span class="el-dropdown-link">{{language}}
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item command="cn">中文</el-dropdown-item>
+          <el-dropdown-item command="en">English</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
     <div class="user-info">
       <el-dropdown trigger="click"
         @command="handleCommand">
         <span class="el-dropdown-link">
           {{username}}
+          <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="loginout">退出登录</el-dropdown-item>
@@ -40,12 +56,15 @@ import { setTimeout } from 'timers'
 export default {
   data() {
     return {
+      language: '',
       collapse: false,
       name: 'linxin',
       activeIndex2: '1',
     }
   },
   created() {
+    const _lang = localStorage.lang || 'cn'
+    this.getLanguage(_lang)
     const { HeaderStore } = this.$store.state
     if (this.$route.path === '/') {
       this.$router.push(
@@ -95,6 +114,19 @@ export default {
         this.$router.push(siderMenu[0].name)
       }
     },
+    handleSetLanguage(lang) {
+      this.$i18n.locale = lang
+      localStorage.setItem('lang', lang)
+      this.getLanguage(lang)
+    },
+    getLanguage(val) {
+      if (val === 'cn') {
+        this.language = '中文'
+      }
+      if (val === 'en') {
+        this.language = 'English'
+      }
+    },
   },
 }
 </script>
@@ -134,6 +166,33 @@ export default {
 
   .menu {
     float: left;
+  }
+
+  .language {
+    float: right;
+    font-size: 16px;
+    line-height: 60px;
+    color: #fff;
+
+    .el-dropdown-link {
+      position: relative;
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .el-icon-arrow-down {
+      font-size: 14px;
+    }
+
+    .international-icon {
+      font-size: 20px;
+      vertical-align: -5px !important;
+      cursor: pointer;
+    }
   }
 
   .user-info {

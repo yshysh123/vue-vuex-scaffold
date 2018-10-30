@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from './tool/axios'
+import i18n from './i18n/i18n'
 import './style/index.less'
 import './registerServiceWorker'
 import './plugins/element'
@@ -13,6 +14,7 @@ Vue.prototype.$ajax = axios
 const vueInit = () => {
   new Vue({
     router,
+    i18n,
     store,
     render: h => h(App),
   }).$mount('#app')

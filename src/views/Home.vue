@@ -2,6 +2,9 @@
   <div class="home">
     <el-button @click="soundTest">el-button</el-button>
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <p>{{$t('message.hello')}}</p>
+    <p>{{$t('message.msg')}}</p>
+    <p>{{$t('login')}}</p>
   </div>
 </template>
 

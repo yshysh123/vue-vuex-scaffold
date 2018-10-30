@@ -273,7 +273,7 @@
     ],    
     "no-empty-source": null,
     "property-no-vendor-prefix": [true, {"ignoreProperties": ["background-clip"]}],
-    "number-leading-zero": "never",
+    "number-leading-zero": "always",
     "number-no-trailing-zeros": true,
     "length-zero-no-unit": true,
     "value-list-comma-space-after": "always",
