@@ -4,6 +4,14 @@
 
 * follow latest vue, vue-cli, vue-router vuex webpack version
 * use eslint-config-airbnb
+* use less for style
+* use stylelint-config-recommended，stylelint-config-property-sort-order-smacss
+* use single word for dir and file name
+* build文件夹存放代码构建脚本。
+* 最终发布文件放到dist文件夹。
+* 增加国际化配置，使用i18n，配置具体使用方式见i18n以及home页面
+* 使用axios，配置见/tool/axios.js
+
 
 ### 常用命令
 
