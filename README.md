@@ -3,6 +3,7 @@
 ### feature
 
 * follow latest vue, vue-cli, vue-router vuex webpack version
+* use eslint-config-airbnb
 
 ### 常用命令
 
