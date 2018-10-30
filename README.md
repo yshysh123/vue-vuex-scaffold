@@ -12,6 +12,10 @@
 * 增加国际化配置，使用i18n，配置具体使用方式见i18n以及home页面
 * 使用axios，配置见/tool/axios.js
 
+### VS code 插件配置
+
+* 安装stylelint以及ESLint以及Prettier插件，然后按照.vscode里面的配置，配置完成。编辑器会自动修改eslint错误。
+* 安装vetur插件配置For Vue
 
 ### 常用命令
 
