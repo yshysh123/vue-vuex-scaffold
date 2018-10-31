@@ -19,7 +19,7 @@ const alias = {
   style: resolvePath('./src/style'),
   locale: resolvePath('./src/locale'),
   src: resolvePath('./src'),
-  fixture: resolvePath('./__test__/fixture'),
+  fixture: resolvePath('./__tests__/fixture'),
 }
 
 module.exports = {

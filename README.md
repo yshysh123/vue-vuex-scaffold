@@ -2,20 +2,20 @@
 
 ### feature
 
-* follow latest vue, vue-cli, vue-router vuex webpack version
-* use eslint-config-airbnb
-* use less for style
-* use stylelint-config-recommended，stylelint-config-property-sort-order-smacss
-* use single word for dir and file name
-* build文件夹存放代码构建脚本。
-* 最终发布文件放到dist文件夹。
-* 增加国际化配置，使用i18n，配置具体使用方式见i18n以及home页面
-* 使用axios，配置见/tool/axios.js
+- follow latest vue, vue-cli, vue-router vuex webpack version
+- use eslint-config-airbnb
+- use less for style
+- use stylelint-config-recommended，stylelint-config-property-sort-order-smacss
+- use single word for dir and file name
+- build 文件夹存放代码构建脚本。
+- 最终发布文件放到 dist 文件夹。
+- 增加国际化配置，使用 i18n，配置具体使用方式见 i18n 以及 home 页面
+- 使用 axios，配置见/tool/axios.js
 
 ### VS code 插件配置
 
-* 安装stylelint以及ESLint以及Prettier插件，然后按照.vscode里面的配置，配置完成。编辑器会自动修改eslint错误。
-* 安装vetur插件配置For Vue
+- 安装 stylelint 以及 ESLint 以及 Prettier 插件，然后按照.vscode 里面的配置，配置完成。编辑器会自动修改 eslint 错误。
+- 安装 vetur 插件配置 For Vue
 
 ### 常用命令
 
@@ -32,7 +32,7 @@ yarn build:production
 // 或yarn production 相同
 ```
 
-- 单元测试文件夹`__test__`，运行单元测试用例
+- 单元测试文件夹`__tests__`，运行单元测试用例
   参考[jest 文档](https://facebook.github.io/jest/)
 
 ```

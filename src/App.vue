@@ -39,7 +39,6 @@ export default {
 
 <style>
 #app {
-  margin-top: 60px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,10 +65,10 @@ export default {
 }
 
 .collapseY {
-  padding: 60px 0 0 64px;
+  padding: 0 0 0 64px;
 }
 
 .collapseN {
-  padding: 60px 0 0 200px;
+  padding: 0 0 0 200px;
 }
 </style>

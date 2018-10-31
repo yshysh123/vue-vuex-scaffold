@@ -10,11 +10,8 @@ import {
   Submenu,
   Notification,
   Tooltip,
+  Popover,
 } from 'element-ui'
-import lang from 'element-ui/lib/locale/lang/en'
-import locale from 'element-ui/lib/locale'
-
-locale.use(lang)
 
 Vue.use(Button)
 Vue.use(Menu)
@@ -25,5 +22,6 @@ Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Submenu)
 Vue.use(Tooltip)
+Vue.use(Popover)
 
 Vue.prototype.$notify = Notification

@@ -1,16 +1,11 @@
-const webpackResolve = require('./build/webpackResolve')
+const webpackResolve = require('./build/webpackResolve');
 
 module.exports = {
   root: true,
   env: {
     node: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-    'plugin:prettier/recommended',
-    'prettier',
-  ],
+  extends: ['plugin:vue/essential', '@vue/airbnb', 'plugin:prettier/recommended', 'prettier'],
   plugins: ['import', 'html', 'vue', 'prettier'],
   rules: {
     'prettier/prettier': [
@@ -63,4 +58,4 @@ module.exports = {
       },
     },
   },
-}
+};
