@@ -11,6 +11,8 @@
 - 最终发布文件放到 dist 文件夹。
 - 增加国际化配置，使用 i18n，配置具体使用方式见 i18n 以及 home 页面
 - 使用 axios，配置见/tool/axios.js
+- webpack配置文件在build/config.js
+- 所有接口地址都在src/api/index.js中配置，避免接口到处硬编码。
 
 ### VS code 插件配置
 
@@ -25,11 +27,10 @@
 yarn start
 ```
 
-- 发布到生产环境。
+- 打包发布
 
 ```
-yarn build:production
-// 或yarn production 相同
+yarn run build
 ```
 
 - 单元测试文件夹`__tests__`，运行单元测试用例
