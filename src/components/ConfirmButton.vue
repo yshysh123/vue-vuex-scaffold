@@ -26,9 +26,7 @@ export default {
     text: String,
     onConfirmText: String,
   },
-  mounted() {
-    console.log(this)
-  },
+  mounted() {},
   data() {
     return {
       visible2: false,

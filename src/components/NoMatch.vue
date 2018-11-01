@@ -18,15 +18,12 @@
 export default {
   name: 'noMatch',
   data: function() {
-    return {
-      count: 1,
-    }
+    return {}
   },
   mounted() {},
   methods: {
     backToHome() {
-      console.log(11111)
-      // this.$router.push('/')
+      this.$router.push('/')
     },
   },
 }

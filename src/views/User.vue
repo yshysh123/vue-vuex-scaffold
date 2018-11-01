@@ -1,16 +1,31 @@
 <template>
   <div class="user">
-    <h1>This is an User page</h1>
+    <el-card>
+      <div slot="header"
+        class="clearfix">
+        <span>查询</span>
+      </div>
+      <QueryForm :showForm="showForm" />
+    </el-card>
   </div>
 </template>
 
 <script>
+import QueryForm from 'components/QueryForm'
 export default {
   name: 'user',
   data: function() {
     return {
-      me: {},
+      showForm: {
+        name: true,
+        region: true,
+        date: true,
+        desc: true,
+      },
     }
+  },
+  components: {
+    QueryForm,
   },
   mounted() {},
 }

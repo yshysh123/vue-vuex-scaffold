@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h3>欢迎来到首页</h3>
   </div>
 </template>
 

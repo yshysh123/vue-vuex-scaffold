@@ -8,6 +8,7 @@ import i18n from './i18n/i18n'
 import './style/index.less'
 import './registerServiceWorker'
 import './plugins/element'
+import { base as api } from './api'
 
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
@@ -21,7 +22,7 @@ const vueInit = () => {
 }
 
 axios
-  .get(`menu/getMenuData`)
+  .get(api.menu)
   .then(data => {
     const index = getHeaderIndexByRouter(
       data,
@@ -32,7 +33,7 @@ axios
     store.commit('setItems', siderMenu)
   })
   .then(() =>
-    axios.get(`user/getUserInfo`).then(data => {
+    axios.get(api.me).then(data => {
       localStorage.setItem('ms_username', data.name)
       vueInit()
     }),

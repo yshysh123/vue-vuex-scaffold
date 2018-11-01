@@ -20,6 +20,7 @@
           :index="String(item.name)">{{item.fullName}}</el-menu-item>
       </el-menu>
     </div>
+
     <div class="language">
       <el-dropdown trigger="click"
         class='international'
@@ -47,12 +48,16 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+    <div class="themePicker">
+      <ThemePicker />
+    </div>
   </div>
 </template>
 <script>
+import ThemePicker from 'components/ThemePicker'
 import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'
 import { getHeaderKeyByRouter } from 'tool/getHeaderIndexByRouter'
-import { setTimeout } from 'timers'
+
 export default {
   data() {
     return {
@@ -62,11 +67,14 @@ export default {
       activeIndex2: '1',
     }
   },
-  created() {
+  components: {
+    ThemePicker,
+  },
+  mounted() {
     const _lang = localStorage.lang || 'cn'
     this.getLanguage(_lang)
     const { HeaderStore } = this.$store.state
-    if (this.$route.path === '/') {
+    if (location.pathname === '/') {
       this.$router.push(
         HeaderStore.headerMenu[0].children[0].name
           ? HeaderStore.headerMenu[0].children[0].name
@@ -81,7 +89,7 @@ export default {
     } else {
       this.activeIndex2 = getHeaderKeyByRouter(
         HeaderStore.headerMenu,
-        this.$route.path.replace('/', ''),
+        location.pathname.replace('/', ''),
       )
     }
   },
@@ -166,6 +174,11 @@ export default {
 
   .menu {
     float: left;
+  }
+
+  .themePicker {
+    float: right;
+    padding-top: 8px;
   }
 
   .language {

@@ -1,17 +1,13 @@
 <template>
   <div class="home">
+    <HelloWorld :msg="$t('message.hello')" />
     <el-button @click="soundTest">测试音乐</el-button>
     <ConfirmButton onConfirmText="你确定要删除吗？？"
       @onConfirm="onConfirm">测试HOC</ConfirmButton>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <p>{{$t('message.hello')}}</p>
-    <p>{{$t('message.msg')}}</p>
-    <p>{{$t('login')}}</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from 'components/HelloWorld'
 import ConfirmButton from 'components/ConfirmButton'
 import axios from 'tool/axios'

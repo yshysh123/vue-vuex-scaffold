@@ -13,7 +13,7 @@
           <el-submenu :index="String(item.name)"
             :key="item.name">
             <template slot="title">
-              <i class="el-icon-edit"></i>
+              <i :class="item.icon"></i>
               <span slot="title">{{ item.fullName }}</span>
             </template>
             <el-menu-item v-for="(subItem,i) in item.children"
@@ -26,7 +26,7 @@
         <template v-else>
           <el-menu-item :index="String(item.name)"
             :key="item.name">
-            <i class="el-icon-edit"></i>
+            <i :class="item.icon"></i>
             <span slot="title">{{ item.fullName }}</span>
           </el-menu-item>
         </template>
@@ -73,5 +73,6 @@ export default {
 
 .sidebar > ul {
   height: 100%;
+  // background-color: #eee;
 }
 </style>
