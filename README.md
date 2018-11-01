@@ -13,6 +13,8 @@
 - 使用 axios，配置见/tool/axios.js
 - webpack配置文件在build/config.js
 - 所有接口地址都在src/api/index.js中配置，避免接口到处硬编码。
+- add commitizen and commitlint for git commit format
+- 增加换肤功能，如果需要修改默认颜色，见components-ThemePicker.vue
 
 ### VS code 插件配置
 
@@ -37,14 +39,14 @@ yarn run build
   参考[jest 文档](https://facebook.github.io/jest/)
 
 ```
-yarn test
+yarn run test
 ```
 
 - 单元测试代码覆盖率
   调用 jest 生成 coverage 文件夹，查看里面的 index.html。
 
 ```
-yarn coverage
+yarn run coverage
 ```
 
 - e2e 测试用例在`e2e/specs`文件夹，运行 e2e 测试
