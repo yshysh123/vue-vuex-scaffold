@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true yarn run build",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve",
     "server": "cross-env NODE_ENV=development npx nodemon npx babel-node ./server/app.js",
@@ -72,6 +73,7 @@
     "eslint-plugin-jest": "^21.26.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react-native": "^3.5.0",
+    "fetch-mock": "^7.2.2",
     "jest": "^23.6.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
@@ -79,13 +81,13 @@
     "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
     "prettier-stylelint": "^0.4.2",
-    "sinon": "^7.1.0",
     "stylelint": "^9.6.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^1.0.0",
     "stylelint-processor-html": "^1.0.0",
     "vue-cli-plugin-element": "^1.0.0",
     "vue-template-compiler": "^2.5.17",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2"
   },
   "gitHooks": {

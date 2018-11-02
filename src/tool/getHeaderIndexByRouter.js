@@ -2,18 +2,18 @@
  *
  * @param {总menu} menu
  * @param {header的key} key
- * 传入顶部以及侧边栏的数组，以及router，返回header的index
+ * 传入顶部以及侧边栏的数组，返回header的name
  */
 export function getHeaderKeyByRouter(menu, key) {
   let result = ''
-  menu.map(item => {
+  menu.forEach(item => {
     if (item.children && item.children.length) {
-      item.children.map(item2 => {
+      item.children.forEach(item2 => {
         if (item2.name === key) {
           result = item.name
         }
         if (item2.children && item2.children.length) {
-          item2.children.map(item3 => {
+          item2.children.forEach(item3 => {
             if (item3.name === key) {
               result = item.name
             }
@@ -25,16 +25,22 @@ export function getHeaderKeyByRouter(menu, key) {
   return result
 }
 
+/**
+ *
+ * @param {总menu} menu
+ * @param {header的key} key
+ * 传入顶部以及侧边栏的数组，返回header的index
+ */
 export function getHeaderIndexByRouter(menu, key) {
   let result = ''
-  menu.map((item, index) => {
+  menu.forEach((item, index) => {
     if (item.children && item.children.length) {
-      item.children.map(item2 => {
+      item.children.forEach(item2 => {
         if (item2.name === key) {
           result = index
         }
         if (item2.children && item2.children.length) {
-          item2.children.map(item3 => {
+          item2.children.forEach(item3 => {
             if (item3.name === key) {
               result = index
             }

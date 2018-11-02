@@ -4,7 +4,5 @@ export const base = {
 }
 
 export const user = {
-  list: 'users',
-  create: 'user/create',
-  detail: 'user/:id',
+  list: 'user/lists',
 }

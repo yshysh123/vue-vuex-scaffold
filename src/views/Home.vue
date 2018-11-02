@@ -21,9 +21,7 @@ export default {
   methods: {
     soundTest() {
       //测试声音
-      axios.get(`user/getUserInfo`).then(data => {
-        localStorage.setItem('ms_username', data.name)
-      })
+      axios.get(`user/testVideo`).then(data => {})
     },
     onConfirm() {
       alert('测试成功')

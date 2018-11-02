@@ -6,9 +6,9 @@
     </div>
     <div class="noMatchRight">
       <h1>404</h1>
-      <h2>抱歉，你访问的页面不存在</h2>
+      <h2>{{$t('noMatch.message')}}</h2>
       <div style="text-align:left;">
-        <el-button @click="backToHome">回到首页</el-button>
+        <el-button @click="backToHome">{{$t('noMatch.backToHome')}}</el-button>
       </div>
     </div>
   </div>

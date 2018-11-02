@@ -6,7 +6,7 @@
  */
 const getSiderByHeaderIndex = (menu, index) => {
   let result = []
-  menu.map(item => {
+  menu.forEach(item => {
     if (item.name === index) {
       result = item.children
     }

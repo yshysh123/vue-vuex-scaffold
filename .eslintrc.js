@@ -1,11 +1,16 @@
-const webpackResolve = require('./build/webpackResolve');
+const webpackResolve = require('./build/webpackResolve')
 
 module.exports = {
   root: true,
   env: {
     node: true,
   },
-  extends: ['plugin:vue/essential', '@vue/airbnb', 'plugin:prettier/recommended', 'prettier'],
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb',
+    'plugin:prettier/recommended',
+    'prettier',
+  ],
   plugins: ['import', 'html', 'vue', 'prettier'],
   rules: {
     'prettier/prettier': [
@@ -19,6 +24,10 @@ module.exports = {
         parser: 'flow',
       },
     ],
+    /**
+     * 为了防止某些import引入 package里面的dev报错
+     */
+    'import/no-extraneous-dependencies': 0,
     /**
      * 由于Vuex存储的状态由Vue激活，当我们改变状态时，观察状态的Vue组件将自动更新。
      * 这也意味着Vuex突变在使用普通Vue时会受到相同的警告错误
@@ -39,6 +48,8 @@ module.exports = {
           'res', // for Express responses
           'response', // for Express responses
           'state', // for Vuex scopes
+          'params',
+          'config',
         ],
       },
     ],
@@ -58,4 +69,4 @@ module.exports = {
       },
     },
   },
-};
+}

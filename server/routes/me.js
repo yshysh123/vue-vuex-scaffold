@@ -16,4 +16,14 @@ router.get('/user/getUserInfo', (req, res) => {
   res.send(ret)
 })
 
+router.get('/user/testVideo', (req, res) => {
+  res.type('json')
+  const ret = {}
+  const data = null
+  Object.assign(ret, resultData, {
+    data,
+  })
+  res.send(ret)
+})
+
 module.exports = router

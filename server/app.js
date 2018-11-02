@@ -33,6 +33,10 @@ const menu = require('./routes/menu')
 
 app.use('/', menu)
 
+const user = require('./routes/user')
+
+app.use('/', user)
+
 /* 本路由文件由server/server.template.js文件生成，不要手动更改 */
 
 const server = app.listen(8089, 'localhost', () => {

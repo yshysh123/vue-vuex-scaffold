@@ -24,6 +24,10 @@ import {
   Row,
   Card,
   ColorPicker,
+  Table,
+  TableColumn,
+  Pagination,
+  Loading,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -48,6 +52,9 @@ Vue.use(Col)
 Vue.use(Row)
 Vue.use(Card)
 Vue.use(ColorPicker)
-
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Loading)
 Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message

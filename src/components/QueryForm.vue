@@ -8,41 +8,43 @@
       <el-row>
         <el-col :span="6"
           v-if="showForm.name">
-          <el-form-item label="活动名称"
+          <el-form-item :label="$t('user.name')"
             prop="name">
-            <el-input v-model="ruleForm.name"></el-input>
+            <el-input :placeholder="$t('user.namePlaceHolder')"
+              v-model="ruleForm.name"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="6"
-          v-if="showForm.region">
-          <el-form-item label="活动区域"
-            prop="region">
-            <el-select v-model="ruleForm.region"
-              placeholder="请选择活动区域">
-              <el-option label="区域一"
-                value="shanghai"></el-option>
-              <el-option label="区域二"
-                value="beijing"></el-option>
+          v-if="showForm.age">
+          <el-form-item :label="$t('user.age')"
+            prop="age">
+            <el-input :placeholder="$t('user.agePlaceHolder')"
+              v-model="ruleForm.age"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="6"
+          v-if="showForm.sex">
+          <el-form-item :label="$t('user.sex')"
+            prop="sex">
+            <el-select v-model="ruleForm.sex"
+              :placeholder="$t('user.sexPlaceHolder')">
+              <el-option :label="$t('user.sexMan')"
+                value="1"></el-option>
+              <el-option :label="$t('user.sexWoman')"
+                value="2"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="6"
           v-if="showForm.date">
-          <el-form-item label="活动时间"
+          <el-form-item :label="$t('user.date')"
             required>
-            <el-form-item prop="date1">
+            <el-form-item prop="date">
               <el-date-picker type="date"
-                placeholder="选择日期"
-                v-model="ruleForm.date1"
+                :placeholder="$t('user.datePlaceHolder')"
+                v-model="ruleForm.date"
                 style="width: 100%;"></el-date-picker>
             </el-form-item>
-          </el-form-item>
-        </el-col>
-        <el-col :span="6"
-          v-if="showForm.desc">
-          <el-form-item label="活动形式"
-            prop="desc">
-            <el-input v-model="ruleForm.desc"></el-input>
           </el-form-item>
         </el-col>
       </el-row>
@@ -66,39 +68,61 @@ export default {
     return {
       ruleForm: {
         name: '',
-        region: '',
-        date1: '',
-        desc: '',
-      },
-      rules: {
-        name: [
-          { required: true, message: '请输入活动名称', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
-        ],
-        region: [
-          { required: true, message: '请选择活动区域', trigger: 'change' },
-        ],
-        date1: [
-          {
-            type: 'date',
-            required: true,
-            message: '请选择日期',
-            trigger: 'change',
-          },
-        ],
-        desc: [{ required: true, message: '请填写活动形式', trigger: 'blur' }],
+        sex: '',
+        date: '',
+        age: '',
       },
     }
   },
   props: {
     showForm: Object,
   },
+  computed: {
+    rules() {
+      return {
+        name: [
+          {
+            required: true,
+            message: this.$t('user.rulesName'),
+            trigger: 'blur',
+          },
+          {
+            min: 3,
+            max: 5,
+            message: this.$t('user.rulesNameLength'),
+            trigger: 'blur',
+          },
+        ],
+        sex: [
+          {
+            required: true,
+            message: this.$t('user.rulesSex'),
+            trigger: 'change',
+          },
+        ],
+        date: [
+          {
+            required: true,
+            message: this.$t('user.rulesDate'),
+            trigger: 'change',
+          },
+        ],
+        age: [
+          {
+            required: true,
+            message: this.$t('user.rulesAge'),
+            trigger: 'blur',
+          },
+        ],
+      }
+    },
+  },
   mounted() {},
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert('submit!')
+          this.$emit('onSubmit', this.ruleForm)
         } else {
           console.log('error submit!!')
           return false

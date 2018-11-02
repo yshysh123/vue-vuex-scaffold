@@ -5,7 +5,7 @@
         @click="collapseChage">
         <i class="el-icon-menu"></i>
       </div>
-      <div class="logo">项目主体</div>
+      <div class="logo">{{$t('base.title')}}</div>
     </div>
     <div class="menu">
       <el-menu :default-active="activeIndex2"
@@ -141,7 +141,7 @@ export default {
 <style lang="less" scoped type="text/css">
 .header {
   position: fixed;
-  z-index: 100;
+  z-index: 2000;
   top: 0;
   left: 0;
   box-sizing: border-box;

@@ -1,11 +1,22 @@
 import axios from 'axios'
 import Vue from 'vue'
+import isObject from 'lodash/isObject'
+import timeFormat from 'tool/timeFormat'
 import { emitter as soundEmitter } from '../components/SoundEffect.vue'
 
 axios.interceptors.request.use(
   config => {
-    /* eslint-disable-next-line */
     config.url = `/api/${config.url}`
+    /**
+     * 判断是否有Date格式的入参，统一转成字符串格式
+     */
+    if (config.params) {
+      Object.keys(config.params).forEach(item => {
+        if (config.params[item] instanceof Date) {
+          config.params[item] = timeFormat(config.params[item])
+        }
+      })
+    }
     return config
   },
   err => {
@@ -18,19 +29,42 @@ axios.interceptors.request.use(
   },
 )
 
+const processList = data => {
+  if (isObject(data) && 'entities' in data) {
+    const d = data
+    return {
+      originalData: d,
+      dataSource: d.entities,
+      total: Number(d.total) || 0,
+      pageNo: Number(d.pageNo) || 1,
+      pageSize: Number(d.pageSize) || 20,
+    }
+  }
+  return data
+}
+
 axios.interceptors.response.use(
   res => {
     if (res.data.code === '200') {
-      soundEmitter.emit('success')
-      if (soundEmitter.emit('success')) {
+      /**
+       * 如果没有返回数据，说明是用户操作，弹出提示框，并且增加声音
+       */
+      if (!res.data.data) {
+        soundEmitter.emit('success')
         Vue.prototype.$notify.success({
           title: '操作成功',
           message: res.data.message,
           duration: 3000,
         })
       }
-      return res.data.data
+      return processList(res.data.data)
     }
+    Vue.prototype.$notify.error({
+      title: '接口错误',
+      message: res.data.message,
+      duration: 3000,
+    })
+    soundEmitter.emit('failure')
     return null
   },
   err => {
@@ -42,7 +76,7 @@ axios.interceptors.response.use(
       // Message.error({ message: '未知错误!' })
     }
     Vue.prototype.$notify.error({
-      title: '接口错误',
+      title: '服务器错误',
       message: err.title || err.toString(),
       duration: 3000,
     })
