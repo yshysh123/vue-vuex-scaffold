@@ -7,7 +7,9 @@ const mutations = {
   },
 }
 const state = {
-  lists: {},
+  lists: {
+    dataSource: [],
+  },
 }
 const actions = {
   fetchLists: (store, params = { pageNo: 1, pageSize: 10 }) => {

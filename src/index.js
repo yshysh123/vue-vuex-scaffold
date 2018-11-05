@@ -1,4 +1,5 @@
 import { getHeaderIndexByRouter } from 'tool/getHeaderIndexByRouter'
+import 'nprogress/nprogress.css'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -29,7 +30,7 @@ axios
       window.location.pathname.split('/')[1],
     )
     const siderMenu = data[index || 0].children
-    store.commit('setHeaderMenu', data)
+    store.commit('HeaderStore/setHeaderMenu', data)
     store.commit('setItems', siderMenu)
   })
   .then(() =>

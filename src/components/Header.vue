@@ -8,14 +8,14 @@
       <div class="logo">{{$t('base.title')}}</div>
     </div>
     <div class="menu">
-      <el-menu :default-active="activeIndex2"
+      <el-menu :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
         background-color="#393939"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-menu-item v-for="item in $store.state.HeaderStore.headerMenu"
+        <el-menu-item v-for="item in headerMenu"
           :key="item.name"
           :index="String(item.name)">{{item.fullName}}</el-menu-item>
       </el-menu>
@@ -57,6 +57,7 @@
 import ThemePicker from 'components/ThemePicker'
 import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'
 import { getHeaderKeyByRouter } from 'tool/getHeaderIndexByRouter'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   data() {
@@ -64,7 +65,6 @@ export default {
       language: '',
       collapse: false,
       name: 'linxin',
-      activeIndex2: '1',
     }
   },
   components: {
@@ -80,26 +80,32 @@ export default {
           ? HeaderStore.headerMenu[0].children[0].name
           : HeaderStore.headerMenu[0].children[0].children[0].name,
       )
-      this.activeIndex2 = getHeaderKeyByRouter(
-        HeaderStore.headerMenu,
-        HeaderStore.headerMenu[0].children[0].name
-          ? HeaderStore.headerMenu[0].children[0].name
-          : HeaderStore.headerMenu[0].children[0].children[0].name,
+      this.setActiveIndex(
+        getHeaderKeyByRouter(
+          HeaderStore.headerMenu,
+          HeaderStore.headerMenu[0].children[0].name
+            ? HeaderStore.headerMenu[0].children[0].name
+            : HeaderStore.headerMenu[0].children[0].children[0].name,
+        ),
       )
     } else {
-      this.activeIndex2 = getHeaderKeyByRouter(
-        HeaderStore.headerMenu,
-        location.pathname.replace('/', ''),
+      this.setActiveIndex(
+        getHeaderKeyByRouter(
+          HeaderStore.headerMenu,
+          location.pathname.replace('/', ''),
+        ),
       )
     }
   },
   computed: {
+    ...mapState('HeaderStore', ['activeIndex', 'headerMenu']),
     username() {
       let username = localStorage.getItem('ms_username')
       return username ? username : this.name
     },
   },
   methods: {
+    ...mapMutations('HeaderStore', ['setActiveIndex']),
     handleCommand(command) {
       if (command == 'loginout') {
         localStorage.removeItem('ms_username')

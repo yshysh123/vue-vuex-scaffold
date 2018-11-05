@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom'
 import 'core-js/shim'
+import 'isomorphic-fetch'
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>')
 const { window } = jsdom

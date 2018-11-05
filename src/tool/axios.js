@@ -1,11 +1,13 @@
 import axios from 'axios'
 import Vue from 'vue'
+import NProgress from 'nprogress'
 import isObject from 'lodash/isObject'
 import timeFormat from 'tool/timeFormat'
 import { emitter as soundEmitter } from '../components/SoundEffect.vue'
 
 axios.interceptors.request.use(
   config => {
+    NProgress.start()
     config.url = `/api/${config.url}`
     /**
      * 判断是否有Date格式的入参，统一转成字符串格式
@@ -45,6 +47,7 @@ const processList = data => {
 
 axios.interceptors.response.use(
   res => {
+    NProgress.done()
     if (res.data.code === '200') {
       /**
        * 如果没有返回数据，说明是用户操作，弹出提示框，并且增加声音

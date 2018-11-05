@@ -1,7 +1,7 @@
 <template>
   <div id="app"
     :class="$store.state.SiderStore.collapse?'collapseY':'collapseN'">
-    <headerVue></headerVue>
+    <headerVue :activeIndex2="activeIndex2"></headerVue>
     <siderVue></siderVue>
     <transition :name="transitionName">
       <router-view class="Router" />
@@ -14,12 +14,16 @@
 import SoundEffect from '@/components/SoundEffect.vue'
 import headerVue from './components/Sider.vue'
 import siderVue from './components/Header.vue'
+import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'
+import { getHeaderKeyByRouter } from 'tool/getHeaderIndexByRouter'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'app',
   data() {
     return {
       transitionName: 'slide-left',
+      activeIndex2: '',
     }
   },
   components: {
@@ -27,11 +31,45 @@ export default {
     headerVue,
     siderVue,
   },
+  methods: {
+    ...mapMutations('HeaderStore', ['setActiveIndex']),
+  },
   watch: {
     $route(to, from) {
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length
       this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+      const { HeaderStore } = this.$store.state
+      if (location.pathname === '/') {
+        this.$router.push(
+          HeaderStore.headerMenu[0].children[0].name
+            ? HeaderStore.headerMenu[0].children[0].name
+            : HeaderStore.headerMenu[0].children[0].children[0].name,
+        )
+        this.setActiveIndex(
+          getHeaderKeyByRouter(
+            HeaderStore.headerMenu,
+            HeaderStore.headerMenu[0].children[0].name
+              ? HeaderStore.headerMenu[0].children[0].name
+              : HeaderStore.headerMenu[0].children[0].children[0].name,
+          ),
+        )
+      } else {
+        this.setActiveIndex(
+          getHeaderKeyByRouter(
+            HeaderStore.headerMenu,
+            location.pathname.replace('/', ''),
+          ),
+        )
+      }
+      let siderMenu = getSiderByHeaderIndex(
+        HeaderStore.headerMenu,
+        getHeaderKeyByRouter(
+          HeaderStore.headerMenu,
+          location.pathname.replace('/', ''),
+        ),
+      )
+      this.$store.commit('setItems', siderMenu)
     },
   },
 }

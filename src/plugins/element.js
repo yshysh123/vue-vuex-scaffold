@@ -28,6 +28,7 @@ import {
   TableColumn,
   Pagination,
   Loading,
+  Header,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -56,5 +57,7 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Pagination)
 Vue.use(Loading)
+Vue.use(Header)
+
 Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message

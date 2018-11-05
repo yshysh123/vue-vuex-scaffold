@@ -33,6 +33,7 @@
 <script>
 import QueryForm from 'components/QueryForm'
 import Pagination from 'components/Pagination'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'user',
@@ -52,23 +53,25 @@ export default {
     Pagination,
   },
   computed: {
-    lists() {
-      return this.$store.state.UserStore.lists
-    },
+    /**
+     * 映射vuex  将lists映射为this.$store.state.UserStore.lists
+     */
+    ...mapState('UserStore', ['lists']),
   },
   methods: {
     onSubmit(value) {
       this.loading = true
-      this.$store.dispatch('UserStore/fetchLists', value).then(() => {
+      this.fetchLists(value).then(() => {
         this.loading = false
       })
     },
+    /**
+     * 映射vuex  将this.fetchLists映射为this.$store.dispatch('UserStore/fetchLists')
+     */
+    ...mapActions('UserStore', ['fetchLists']),
   },
   mounted() {
-    this.loading = true
-    this.$store.dispatch('UserStore/fetchLists').then(() => {
-      this.loading = false
-    })
+    this.onSubmit({})
   },
 }
 </script>
