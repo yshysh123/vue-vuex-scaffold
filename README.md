@@ -14,6 +14,8 @@
 - webpack配置文件在build/config.js
 - 所有接口地址都在src/api/index.js中配置，避免接口到处硬编码。
 - add commitizen and commitlint for git commit format
+- UI库使用element按需加载 对应使用组件在src/plugins里
+- 使用webpack-bundle-analyzer，查看打包文件体积和内容，不用时候注释掉
 - 增加换肤功能，如果需要修改默认颜色，见components-ThemePicker.vue
 
 ### VS code 插件配置
