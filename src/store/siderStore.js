@@ -7,7 +7,6 @@ const mutations = {
   },
 }
 const state = {
-  author: 'Wise Wrong',
   collapse: false,
   items: [],
 }

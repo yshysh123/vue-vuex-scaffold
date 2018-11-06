@@ -32,12 +32,17 @@ describe('NoMatch.vue', () => {
         $t: () => '欢迎来到首页',
       },
     })
+    const mockFn = jest.fn(() => {
+      Promise.resolve()
+    })
+    wrapper.setMethods({ fetchLists: mockFn })
+    expect(mockFn).toBeCalled()
 
-    const th = wrapper.findAll('th')
-    expect(th.at(0).text()).toBe('')
-    expect(th.at(1).text()).toBe('姓名')
-    expect(th.at(2).text()).toBe('年龄')
-    expect(th.at(3).text()).toBe('性别')
+    // const th = wrapper.findAll('th')
+    // expect(th.at(0).text()).toBe('')
+    // expect(th.at(1).text()).toBe('姓名')
+    // expect(th.at(2).text()).toBe('年龄')
+    // expect(th.at(3).text()).toBe('性别')
   })
 
   // it('测试是否含有QueryForm和Pagination', () => {
