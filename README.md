@@ -17,6 +17,7 @@
 - UI库使用element按需加载 对应使用组件在src/plugins里
 - 使用webpack-bundle-analyzer，查看打包文件体积和内容，不用时候注释掉
 - 增加换肤功能，如果需要修改默认颜色，见components-ThemePicker.vue
+- 增加全局加载条。如需修改，在axios的配置文件里修改。
 
 ### VS code 插件配置
 
