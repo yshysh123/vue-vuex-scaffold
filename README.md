@@ -2,27 +2,27 @@
 
 ### feature
 
-- follow latest vue, vue-cli, vue-router vuex webpack version
-- use eslint-config-airbnb
-- use less for style
-- use stylelint-config-recommended，stylelint-config-property-sort-order-smacss
-- use single word for dir and file name
-- build 文件夹存放代码构建脚本。
-- 最终发布文件放到 dist 文件夹。
-- 增加国际化配置，使用 i18n，配置具体使用方式见 i18n 以及 home 页面
-- 使用 axios，配置见/tool/axios.js
-- webpack配置文件在build/config.js
-- 所有接口地址都在src/api/index.js中配置，避免接口到处硬编码。
-- add commitizen and commitlint for git commit format
-- UI库使用element按需加载 对应使用组件在src/plugins里
-- 使用webpack-bundle-analyzer，查看打包文件体积和内容，不用时候注释掉
-- 增加换肤功能，如果需要修改默认颜色，见components/ThemePicker.vue
-- 增加全局加载条。如需修改，在axios的配置文件里修改。
-- 项目启用node子进程，router、store、server接口不需要手动配置，会根据对应文件夹下文件自动加入配置（需重启webpack）
- - router会根据src/views/的文件自动生成router.js
- - store会根据src/store的文件自动生成store.js
- - server/app.js会根据server/routes自动生成更新app.js
-- 单元测试不断更新ing 目前单元测试进度50% 可使用yarn run coverage进行查看。
+* follow latest vue, vue-cli, vue-router vuex webpack version
+* use eslint-config-airbnb
+* use less for style
+* use stylelint-config-recommended，stylelint-config-property-sort-order-smacss
+* use single word for dir and file name
+* build 文件夹存放代码构建脚本。
+* 最终发布文件放到 dist 文件夹。
+* 增加国际化配置，使用 i18n，配置具体使用方式见 i18n 以及 home 页面
+* 使用 axios，配置见/tool/axios.js
+* webpack配置文件在build/config.js
+* 所有接口地址都在src/api/index.js中配置，避免接口到处硬编码。
+* add commitizen and commitlint for git commit format
+* UI库使用element按需加载 对应使用组件在src/plugins里
+* 使用webpack-bundle-analyzer，查看打包文件体积和内容，不用时候注释掉
+* 增加换肤功能，如果需要修改默认颜色，见components/ThemePicker.vue
+* 增加全局加载条。如需修改，在axios的配置文件里修改。
+* 项目启用node子进程，router、store、server接口不需要手动配置，会根据对应文件夹下文件自动加入配置（需重启webpack）
+ * router会根据src/views/的文件自动生成router.js
+ * store会根据src/store的文件自动生成store.js
+ * server/app.js会根据server/routes自动生成更新app.js
+* 单元测试不断更新ing 目前单元测试进度50% 可使用yarn run coverage进行查看。
 
 ### VS code 插件配置
 
