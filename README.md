@@ -18,6 +18,7 @@
 - 使用webpack-bundle-analyzer，查看打包文件体积和内容，不用时候注释掉
 - 增加换肤功能，如果需要修改默认颜色，见components-ThemePicker.vue
 - 增加全局加载条。如需修改，在axios的配置文件里修改。
+- 项目启用node子进程，router、store、server接口不需要手动配置，会根据对应文件夹下文件自动加入配置（需重启webpack）
 
 ### VS code 插件配置
 
