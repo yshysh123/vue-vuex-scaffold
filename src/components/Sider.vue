@@ -2,13 +2,13 @@
   <div class="sidebar">
     <el-menu class="sidebar-el-menu"
       :default-active="onRoutes"
-      :collapse="$store.state.SiderStore.collapse"
+      :collapse="collapse"
       background-color="#393939"
       text-color="#bfcbd9"
       active-text-color="#ffd04b"
       unique-opened
       router>
-      <template v-for="item in $store.state.SiderStore.items">
+      <template v-for="item in items">
         <template v-if="item.children">
           <el-submenu :index="String(item.name)"
             :key="item.name">
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {}
@@ -44,6 +45,7 @@ export default {
     onRoutes() {
       return this.$route.path.replace('/', '')
     },
+    ...mapState('SiderStore', ['items', 'collapse']),
   },
 }
 </script>
@@ -61,18 +63,17 @@ export default {
   .el-submenu {
     text-align: left;
   }
-}
 
-.el-submenu .el-menu-item {
-  min-width: 180px;
-}
+  .el-submenu .el-menu-item {
+    min-width: 180px;
+  }
 
-.sidebar-el-menu:not(.el-menu--collapse) {
-  width: 200px;
-}
+  .sidebar-el-menu:not(.el-menu--collapse) {
+    width: 200px;
+  }
 
-.sidebar > ul {
-  height: 100%;
-  // background-color: #eee;
+  .sidebar > ul {
+    height: 100%;
+  }
 }
 </style>

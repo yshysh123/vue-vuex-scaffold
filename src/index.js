@@ -31,7 +31,7 @@ axios
     )
     const siderMenu = data[index || 0].children
     store.commit('HeaderStore/setHeaderMenu', data)
-    store.commit('setItems', siderMenu)
+    store.commit('SiderStore/setItems', siderMenu)
   })
   .then(() =>
     axios.get(api.me).then(data => {

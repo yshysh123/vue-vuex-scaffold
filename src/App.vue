@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     ...mapMutations('HeaderStore', ['setActiveIndex']),
+    ...mapMutations('SiderStore', ['setItems']),
   },
   watch: {
     $route(to, from) {
@@ -69,7 +70,7 @@ export default {
           location.pathname.replace('/', ''),
         ),
       )
-      this.$store.commit('setItems', siderMenu)
+      this.setItems(siderMenu)
     },
   },
 }

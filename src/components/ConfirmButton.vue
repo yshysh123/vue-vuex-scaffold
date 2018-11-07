@@ -9,6 +9,7 @@
           type="text"
           @click="visible2 = false">取消</el-button>
         <el-button type="primary"
+          class="confirmBtn"
           size="mini"
           @click="onClick">确定</el-button>
       </div>

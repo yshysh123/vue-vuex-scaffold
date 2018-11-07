@@ -60,10 +60,7 @@ export default {
   },
   methods: {
     onSubmit(value) {
-      this.loading = true
-      this.fetchLists(value).then(() => {
-        this.loading = false
-      })
+      this.fetchLists(value)
     },
     /**
      * 映射vuex  将this.fetchLists映射为this.$store.dispatch('UserStore/fetchLists')

@@ -1,22 +1,17 @@
 {
-  "success": true,
-  "code": "200",
-  "message": null,
-  "data": {
-    "entities": [
-      { "id": 1, "name": "小红1", "age": 75, "sex": "男" },
-      { "id": 2, "name": "小红2", "age": 53, "sex": "男" },
-      { "id": 3, "name": "小红3", "age": 4, "sex": "男" },
-      { "id": 4, "name": "小红4", "age": 83, "sex": "男" },
-      { "id": 5, "name": "小红5", "age": 51, "sex": "男" },
-      { "id": 6, "name": "小红6", "age": 82, "sex": "女" },
-      { "id": 7, "name": "小红7", "age": 80, "sex": "女" },
-      { "id": 8, "name": "小红8", "age": 4, "sex": "女" },
-      { "id": 9, "name": "小红9", "age": 17, "sex": "男" },
-      { "id": 10, "name": "小红10", "age": 53, "sex": "女" }
-    ],
-    "pageNo": 1,
-    "pageSize": 10,
-    "total": "200"
-  }
+  "entities": [
+    { "id": 1, "name": "小红1", "age": 75, "sex": "男" },
+    { "id": 2, "name": "小红2", "age": 53, "sex": "男" },
+    { "id": 3, "name": "小红3", "age": 4, "sex": "男" },
+    { "id": 4, "name": "小红4", "age": 83, "sex": "男" },
+    { "id": 5, "name": "小红5", "age": 51, "sex": "男" },
+    { "id": 6, "name": "小红6", "age": 82, "sex": "女" },
+    { "id": 7, "name": "小红7", "age": 80, "sex": "女" },
+    { "id": 8, "name": "小红8", "age": 4, "sex": "女" },
+    { "id": 9, "name": "小红9", "age": 17, "sex": "男" },
+    { "id": 10, "name": "小红10", "age": 53, "sex": "女" }
+  ],
+  "pageNo": 1,
+  "pageSize": 10,
+  "total": "200"
 }

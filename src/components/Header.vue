@@ -65,6 +65,7 @@ export default {
       language: '',
       collapse: false,
       name: 'linxin',
+      siderMenu: [],
     }
   },
   components: {
@@ -106,6 +107,7 @@ export default {
   },
   methods: {
     ...mapMutations('HeaderStore', ['setActiveIndex']),
+    ...mapMutations('SiderStore', ['setItems', 'setCollapse']),
     handleCommand(command) {
       if (command == 'loginout') {
         localStorage.removeItem('ms_username')
@@ -114,18 +116,18 @@ export default {
     },
     collapseChage() {
       this.collapse = !this.collapse
-      this.$store.commit('setCollapse', this.collapse)
+      this.setCollapse(this.collapse)
     },
     handleSelect(key, keyPath) {
-      let siderMenu = getSiderByHeaderIndex(
+      this.siderMenu = getSiderByHeaderIndex(
         this.$store.state.HeaderStore.headerMenu,
         key,
       )
-      this.$store.commit('setItems', siderMenu)
-      if (siderMenu[0] && siderMenu[0].children) {
-        this.$router.push(siderMenu[0].children[0].name)
+      this.setItems(this.siderMenu)
+      if (this.siderMenu[0] && this.siderMenu[0].children) {
+        this.$router.push(this.siderMenu[0].children[0].name)
       } else {
-        this.$router.push(siderMenu[0].name)
+        this.$router.push(this.siderMenu[0].name)
       }
     },
     handleSetLanguage(lang) {

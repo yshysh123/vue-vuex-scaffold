@@ -38,20 +38,16 @@ export default {
   },
   methods: {
     handleSizeChange(pageSize) {
-      this.$store
-        .dispatch(this.store, {
-          pageSize: pageSize,
-          pageNo: this.lists.pageNo,
-        })
-        .then(() => {})
+      this.$store.dispatch(this.store, {
+        pageSize: pageSize,
+        pageNo: this.lists.pageNo,
+      })
     },
     handleCurrentChange(pageNo) {
-      this.$store
-        .dispatch(this.store, {
-          pageSize: this.lists.pageSize,
-          pageNo: pageNo,
-        })
-        .then(() => {})
+      this.$store.dispatch(this.store, {
+        pageSize: this.lists.pageSize,
+        pageNo: pageNo,
+      })
     },
   },
 }
