@@ -9,5 +9,6 @@ module.exports = {
         // styleLibraryName: '~theme',
       },
     ],
+    '@babel/plugin-proposal-optional-chaining',
   ],
 }

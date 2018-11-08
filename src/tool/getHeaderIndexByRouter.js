@@ -7,12 +7,12 @@
 export function getHeaderKeyByRouter(menu, key) {
   let result = ''
   menu.forEach(item => {
-    if (item.children && item.children.length) {
+    if (item.children?.length) {
       item.children.forEach(item2 => {
         if (item2.name === key) {
           result = item.name
         }
-        if (item2.children && item2.children.length) {
+        if (item2.children?.length) {
           item2.children.forEach(item3 => {
             if (item3.name === key) {
               result = item.name

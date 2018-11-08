@@ -82,6 +82,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  transition: 0.8s;
 }
 
 .collapseY .Router {
@@ -89,7 +90,7 @@ export default {
   box-sizing: border-box;
   width: calc(100% - 64px);
   padding: 10px 20px;
-  transition: all 0.8s ease;
+  transition: 0.8s;
 }
 
 .collapseN .Router {
@@ -97,7 +98,7 @@ export default {
   box-sizing: border-box;
   width: calc(100% - 200px);
   padding: 10px 20px;
-  transition: all 0.8s ease;
+  transition: 0.8s;
 }
 
 .slide-left-enter,

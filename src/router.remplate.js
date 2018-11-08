@@ -30,7 +30,14 @@ const router = {
     if (savedPosition) {
       return savedPosition
     }
-    return { x: 0, y: 0 }
+    /**
+     * 异步滚动
+     */
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 500)
+    })
   },
 }
 
