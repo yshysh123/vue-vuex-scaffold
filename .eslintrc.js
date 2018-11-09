@@ -50,6 +50,8 @@ module.exports = {
           'state', // for Vuex scopes
           'params',
           'config',
+          'option',
+          'item',
         ],
       },
     ],
