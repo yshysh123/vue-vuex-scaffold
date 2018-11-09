@@ -23,6 +23,7 @@
   - store 会根据 src/store 的文件自动生成 store.js
   - server/app.js 会根据 server/routes 自动生成更新 app.js
 - 单元测试不断更新 ing 目前单元测试进度 50% 可使用 yarn run coverage 进行查看。
+- 增加对echarts的简单封装
 
 ### VS code 插件配置
 
