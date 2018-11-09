@@ -154,6 +154,7 @@ export default {
   left: 0;
   box-sizing: border-box;
   width: 100%;
+  min-width: 800px;
   height: 60px;
   font-size: 22px;
   line-height: 60px;

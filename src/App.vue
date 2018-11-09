@@ -89,28 +89,45 @@ export default {
   position: absolute;
   box-sizing: border-box;
   width: calc(100% - 64px);
+  min-width: 1100px;
   padding: 10px 20px;
-  transition: 0.8s;
 }
 
 .collapseN .Router {
   position: absolute;
   box-sizing: border-box;
   width: calc(100% - 200px);
+  min-width: 1100px;
   padding: 10px 20px;
-  transition: 0.8s;
 }
 
-.slide-left-enter,
-.slide-right-leave-active {
-  opacity: 0;
-  transform: translate(100%, 0);
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  position: absolute;
+  transition: all 500ms;
+  will-change: transform;
 }
 
-.slide-left-leave-active,
 .slide-right-enter {
   opacity: 0;
-  transform: translate(-100% 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.slide-left-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.slide-left-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
 
 .collapseY {

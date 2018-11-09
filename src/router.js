@@ -14,13 +14,19 @@ const router = {
       name: 'home',
       component: Home,
     },
-     {
+    {
+      path: '/chart',
+      name: 'chart',
+      component: () =>
+        import(/* webpackChunkName: "chart" */ './views/Chart.vue'),
+    },
+    {
       path: '/home',
       name: 'home',
       component: () =>
         import(/* webpackChunkName: "home" */ './views/Home.vue'),
     },
-   {
+    {
       path: '/user',
       name: 'user',
       component: () =>

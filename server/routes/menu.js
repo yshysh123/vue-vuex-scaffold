@@ -47,6 +47,16 @@ router.get('/menu/getMenuData', (req, res) => {
               children: null,
             },
             {
+              resId: 68,
+              resType: 2,
+              name: 'Chart',
+              fullName: '图表',
+              icon: null,
+              url: '/Chart',
+              remark: 'Chart',
+              children: null,
+            },
+            {
               resId: 70,
               resType: 2,
               name: 'NotFound',

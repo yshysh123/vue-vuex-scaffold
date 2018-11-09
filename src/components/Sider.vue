@@ -53,6 +53,7 @@ export default {
 <style lang="less" scoped type="text/css">
 .sidebar {
   position: fixed;
+  z-index: 2000;
   top: 60px;
   bottom: 0;
   left: 0;
