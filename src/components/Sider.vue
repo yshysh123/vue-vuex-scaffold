@@ -5,7 +5,7 @@
       :collapse="collapse"
       background-color="#393939"
       text-color="#bfcbd9"
-      active-text-color="#ffd04b"
+      :active-text-color="'#'+themeColor[0]"
       unique-opened
       router>
       <template v-for="item in items">
@@ -46,6 +46,7 @@ export default {
       return this.$route.path.replace('/', '')
     },
     ...mapState('SiderStore', ['items', 'collapse']),
+    ...mapState('RootStore', ['themeColor']),
   },
 }
 </script>

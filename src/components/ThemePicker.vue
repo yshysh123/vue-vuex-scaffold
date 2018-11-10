@@ -8,7 +8,7 @@
 <script>
 const version = require('element-ui/package.json').version // element-ui version from node_modules
 const ORIGINAL_THEME = '#409EFF' // default color
-
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -21,7 +21,7 @@ export default {
       if (typeof val !== 'string') return
       const themeCluster = this.getThemeCluster(val.replace('#', ''))
       const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
-      // console.log(themeCluster, originalCluster)
+      this.setColor(themeCluster)
       const getHandler = (variable, id) => {
         return () => {
           const originalCluster = this.getThemeCluster(
@@ -77,6 +77,7 @@ export default {
   },
 
   methods: {
+    ...mapMutations('RootStore', ['setColor']),
     updateStyle(style, oldCluster, newCluster) {
       let newStyle = style
       oldCluster.forEach((color, index) => {

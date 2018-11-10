@@ -14,13 +14,12 @@
         @select="handleSelect"
         background-color="#393939"
         text-color="#fff"
-        active-text-color="#ffd04b">
+        :active-text-color="'#'+themeColor[0]">
         <el-menu-item v-for="item in headerMenu"
           :key="item.name"
           :index="String(item.name)">{{item.fullName}}</el-menu-item>
       </el-menu>
     </div>
-
     <div class="language">
       <el-dropdown trigger="click"
         class='international'
@@ -100,6 +99,7 @@ export default {
   },
   computed: {
     ...mapState('HeaderStore', ['activeIndex', 'headerMenu']),
+    ...mapState('RootStore', ['themeColor']),
     username() {
       let username = localStorage.getItem('ms_username')
       return username ? username : this.name
