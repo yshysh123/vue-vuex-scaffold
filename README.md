@@ -32,7 +32,7 @@
 
 ### 常用命令
 
-- 本地模拟接口开发模式
+- 本地模拟接口开发模式:express
 
 ```
 yarn start
@@ -40,7 +40,7 @@ yarn start
 
 - 本地模拟接口开发模式：koa2
 ```
-start:koa
+yarn run start:koa
 ```
 
 - 打包发布
