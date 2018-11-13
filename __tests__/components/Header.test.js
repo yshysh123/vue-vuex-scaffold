@@ -1,6 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
+import RootStore from 'store/rootStore'
 import Header from 'components/Header.vue'
 import menu from 'fixture/menu.json'
 
@@ -18,6 +19,7 @@ describe('Header.vue', () => {
   beforeEach(() => {
     store = new Vuex.Store({
       modules: {
+        RootStore,
         HeaderStore: {
           state: {
             headerMenu: menu,

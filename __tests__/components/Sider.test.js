@@ -1,6 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
+import RootStore from 'store/rootStore'
 import Sider from 'src/components/Sider.vue'
 
 const localVue = createLocalVue()
@@ -17,6 +18,7 @@ describe('Sider.vue', () => {
   beforeEach(() => {
     store = new Vuex.Store({
       modules: {
+        RootStore,
         SiderStore: {
           state: {
             collapse: false,

@@ -1,19 +1,33 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import RootStore from 'store/rootStore'
 import NoMatch from 'src/components/NoMatch.vue'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
+localVue.use(Vuex)
 
 const router = new VueRouter()
 
 describe('NoMatch.vue', () => {
-  const wrapper = mount(NoMatch, {
-    localVue,
-    router,
-    mocks: {
-      $t: () => 'some specific text',
-    },
+  let store
+  let wrapper
+
+  beforeEach(() => {
+    store = new Vuex.Store({
+      modules: {
+        RootStore,
+      },
+    })
+    wrapper = mount(NoMatch, {
+      store,
+      router,
+      localVue,
+      mocks: {
+        $t: () => 'some specific text',
+      },
+    })
   })
 
   it('测试HTML是否包含正确', () => {

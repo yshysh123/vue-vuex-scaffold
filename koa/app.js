@@ -23,6 +23,8 @@ app.use(bodyParser())
 app.use(cors())
 app.use(controller())
 
+app.on('error', err => console.error('server error', err))
+
 const server = app.listen(8089, 'localhost', () => {
   const host = server.address().address
   const { port } = server.address()

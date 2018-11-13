@@ -1,7 +1,6 @@
 const mutations = {
   setColor(state, v) {
     state.themeColor = v
-    console.log(state.themeColor)
   },
 }
 const state = {
