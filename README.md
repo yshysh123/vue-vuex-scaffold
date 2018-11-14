@@ -24,6 +24,7 @@
   - server/app.js 会根据 server/routes 自动生成更新 app.js
 - 单元测试不断更新 ing 目前单元测试进度 50% 可使用 yarn run coverage 进行查看。
 - 增加对echarts的简单封装
+- 本地server使用express和koa2 2种方式，具体内容见文件夹server以及koa。
 
 ### VS code 插件配置
 
