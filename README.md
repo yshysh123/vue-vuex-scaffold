@@ -1,5 +1,9 @@
 ## vue 项目前端脚手架
 
+### todo
+
+- templates模板 node脚本集成 自动化完成创建页面 删除页面功能
+
 ### feature
 
 - follow latest vue, vue-cli, vue-router vuex webpack version
