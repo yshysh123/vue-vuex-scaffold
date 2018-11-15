@@ -87,7 +87,7 @@ yarn run coverage
   参考[nightwatch 手册](http://nightwatchjs.org/api)
 
 ```
-yarn e2e
+yarn run e2e
 ```
 
 nightwatch 启动脚本会尝试使用当前的开发环境，如果没有启动则自动打开一个新的 webpackDevServer 服务，使用 webpack.config 文件中的端口号，并运行 e2e 测试用例。
@@ -97,5 +97,5 @@ nightwatch 启动脚本会尝试使用当前的开发环境，如果没有启动
 - 使用 changelog 脚本自动生成 CHANGELOG.md
 
 ```
-yarn changelog
+yarn run changelog
 ```
