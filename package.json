@@ -11,6 +11,8 @@
     "koa": "nodemon ./koa/app.js",
     "start": "yarn run express | cross-env target=express vue-cli-service serve --open",
     "start:koa": "yarn run koa | cross-env target=koa vue-cli-service serve --open",
+    "addPage": "node templates/init add",
+    "deletePage": "node templates/init del",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
     "test": "yarn run test:unit",

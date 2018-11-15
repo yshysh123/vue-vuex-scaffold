@@ -1,30 +1,28 @@
 <template>
   <div class="<!-- forName -->">
-    欢迎来到
-    <!-- forName -->页面
+    <el-card>
+      欢迎来到
+      <!-- forName -->页面
+    </el-card>
     <!-- forSearch -->
     <!-- forTable -->
   </div>
 </template>
 
 <script>
+//importSearch
+//importTable
 export default {
   name: '<!-- forName -->',
-  components: {},
   data: function() {
     return {
-      showForm: {
-        name: true,
-        sex: true,
-        date: true,
-        age: true,
-      },
+      //searchData
       loading: false,
     }
   },
   components: {
-    QueryForm,
-    Pagination,
+    //searchComponents
+    //tableComponents
   },
   computed: {
     //tableComputed
