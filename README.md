@@ -2,7 +2,9 @@
 
 ### todo
 
-- templates模板 node脚本集成 自动化完成创建页面 删除页面功能
+- templates模板 功能完善
+- queryForm 增加url带参数以及参数回填
+- markdownLint 
 
 ### feature
 
@@ -34,6 +36,19 @@
 
 - 安装 stylelint 以及 ESLint 以及 Prettier 插件，然后按照.vscode 里面的配置，配置完成。编辑器会自动修改 eslint 错误。
 - 安装 vetur 插件配置 For Vue
+
+### 脚本命令
+
+- 新增页面(会根据选择 创建是否带表格、search的页面。目前search和表格字段不支持定制，后期完善定制字段)
+```
+yarn run addPage
+```
+
+- 删除页面
+```
+yarn run deletePage
+```
+
 
 ### 常用命令
 
@@ -72,7 +87,7 @@ yarn run coverage
   参考[nightwatch 手册](http://nightwatchjs.org/api)
 
 ```
-yarn e2e
+yarn run e2e
 ```
 
 nightwatch 启动脚本会尝试使用当前的开发环境，如果没有启动则自动打开一个新的 webpackDevServer 服务，使用 webpack.config 文件中的端口号，并运行 e2e 测试用例。
@@ -82,5 +97,5 @@ nightwatch 启动脚本会尝试使用当前的开发环境，如果没有启动
 - 使用 changelog 脚本自动生成 CHANGELOG.md
 
 ```
-yarn changelog
+yarn run changelog
 ```
