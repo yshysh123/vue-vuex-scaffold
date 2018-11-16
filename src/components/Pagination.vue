@@ -33,21 +33,40 @@ export default {
   },
   computed: {
     lists() {
-      return this.storeLists
+      const { query } = this.$route
+      let pagination = Object.assign({}, this.storeLists)
+      if (query.pageNo) {
+        pagination.pageNo = Number(query.pageNo)
+      }
+      if (query.pageSize) {
+        pagination.pageSize = Number(query.pageSize)
+      }
+      return pagination
     },
   },
   methods: {
     handleSizeChange(pageSize) {
-      this.$store.dispatch(this.store, {
+      const { query } = this.$route
+      let params = {
+        ...query,
         pageSize: pageSize,
         pageNo: this.lists.pageNo,
-      })
+      }
+      this.$store.dispatch(this.store, params)
+
+      let queryForm = Object.assign({}, params)
+      this.$router.push({ query: queryForm })
     },
     handleCurrentChange(pageNo) {
-      this.$store.dispatch(this.store, {
+      const { query } = this.$route
+      let params = {
+        ...query,
         pageSize: this.lists.pageSize,
         pageNo: pageNo,
-      })
+      }
+      this.$store.dispatch(this.store, params)
+      let queryForm = Object.assign({}, params)
+      this.$router.push({ query: queryForm })
     },
   },
 }

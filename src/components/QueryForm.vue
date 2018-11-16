@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import timeFormat from 'tool/timeFormat'
 export default {
   name: 'queryForm',
   data: function() {
@@ -117,12 +118,26 @@ export default {
       }
     },
   },
-  mounted() {},
+  mounted() {
+    const { query } = this.$route
+    this.ruleForm = query
+  },
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.$emit('onSubmit', this.ruleForm)
+          Object.keys(this.ruleForm).forEach(item => {
+            if (this.ruleForm[item] instanceof Date) {
+              this.ruleForm[item] = timeFormat(this.ruleForm[item])
+            }
+          })
+          const { query } = this.$route
+          let queryForm = Object.assign({
+            ...query,
+            ...this.ruleForm,
+          })
+          this.$router.push({ query: queryForm })
         } else {
           console.log('error submit!!')
           return false

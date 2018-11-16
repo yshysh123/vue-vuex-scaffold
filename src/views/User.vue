@@ -68,7 +68,8 @@ export default {
     ...mapActions('UserStore', ['fetchLists']),
   },
   mounted() {
-    this.onSubmit({})
+    const { query } = this.$route
+    this.onSubmit(query)
   },
 }
 </script>
