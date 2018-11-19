@@ -3,8 +3,9 @@
 ### todo
 
 - templates模板 功能完善
-- queryForm 增加url带参数以及参数回填
+- queryForm 增加url带参数以及参数回填 - 50% 
 - markdownLint 
+- e2e 
 
 ### feature
 
