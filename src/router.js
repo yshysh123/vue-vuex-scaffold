@@ -15,20 +15,20 @@ const router = {
       component: Home,
     },
      {
-      path: '/chart',
-      name: 'chart',
+      path: '/Chart',
+      name: 'Chart',
       component: () =>
         import(/* webpackChunkName: "chart" */ './views/Chart.vue'),
     },
    {
-      path: '/home',
-      name: 'home',
+      path: '/Home',
+      name: 'Home',
       component: () =>
         import(/* webpackChunkName: "home" */ './views/Home.vue'),
     },
    {
-      path: '/user',
-      name: 'user',
+      path: '/User',
+      name: 'User',
       component: () =>
         import(/* webpackChunkName: "user" */ './views/User.vue'),
     },

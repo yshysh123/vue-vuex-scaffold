@@ -7,8 +7,8 @@ const routeTemplate = fs
 
 const routes = fs.readdirSync('./src/views').map(
   route => ` {
-      path: '/${lowerFirst(route.split('.')[0])}',
-      name: '${lowerFirst(route.split('.')[0])}',
+      path: '/${route.split('.')[0]}',
+      name: '${route.split('.')[0]}',
       component: () =>
         import(/* webpackChunkName: "${lowerFirst(
           route.split('.')[0],

@@ -63,6 +63,7 @@
 
 <script>
 import timeFormat from 'tool/timeFormat'
+import { mapMutations } from 'vuex'
 export default {
   name: 'queryForm',
   data: function() {
@@ -123,21 +124,32 @@ export default {
     this.ruleForm = query
   },
   methods: {
+    ...mapMutations('RootStore', ['setQueryFrom']),
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$emit('onSubmit', this.ruleForm)
           Object.keys(this.ruleForm).forEach(item => {
             if (this.ruleForm[item] instanceof Date) {
               this.ruleForm[item] = timeFormat(this.ruleForm[item])
             }
           })
           const { query } = this.$route
-          let queryForm = Object.assign({
+          let new_query = {
+            x: '',
+          }
+          let params = {
             ...query,
             ...this.ruleForm,
-          })
-          this.$router.push({ query: queryForm })
+            ...new_query,
+            pageSize: query.pageSize ? query.pageSize : 10,
+            pageNo: query.pageNo ? query.pageNo : 1,
+          }
+          let location = {
+            query: params,
+          }
+          this.$router.push(location)
+          this.setQueryFrom(params)
+          this.$emit('onSubmit', params)
         } else {
           console.log('error submit!!')
           return false
@@ -146,6 +158,7 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
+      this.setQueryFrom(this.ruleForm)
     },
   },
 }

@@ -22,6 +22,7 @@
  * store：对应store的dispatch
  * storeLists获取的页面数组
  */
+import { mapState } from 'vuex'
 export default {
   name: 'pagination',
   data: function() {
@@ -43,17 +44,18 @@ export default {
       }
       return pagination
     },
+    ...mapState('RootStore', ['queryFormStore']),
   },
   methods: {
     handleSizeChange(pageSize) {
       const { query } = this.$route
       let params = {
         ...query,
+        ...this.queryFormStore,
         pageSize: pageSize,
         pageNo: this.lists.pageNo,
       }
       this.$store.dispatch(this.store, params)
-
       let queryForm = Object.assign({}, params)
       this.$router.push({ query: queryForm })
     },
@@ -61,6 +63,7 @@ export default {
       const { query } = this.$route
       let params = {
         ...query,
+        ...this.queryFormStore,
         pageSize: this.lists.pageSize,
         pageNo: pageNo,
       }

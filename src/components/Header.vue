@@ -25,13 +25,21 @@
         class='international'
         @command="handleSetLanguage">
         <div>
-          <span class="el-dropdown-link">{{language}}
-            <i class="el-icon-arrow-down el-icon--right"></i>
+          <span class="el-dropdown-link">
+            <img v-if="language==='中文'"
+              class="languageImageTop"
+              src="/asset/images/China.png" />
+            <img v-else
+              class="languageImageTop"
+              src="/asset/images/Groritannien.png" />
+            {{language}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
         </div>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="cn">中文</el-dropdown-item>
-          <el-dropdown-item command="en">English</el-dropdown-item>
+          <el-dropdown-item command="cn"><img class="languageImage"
+              src="/asset/images/China.png" />中文</el-dropdown-item>
+          <el-dropdown-item command="en"><img class="languageImage"
+              src="/asset/images/Groritannien.png" />English</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -199,8 +207,7 @@ export default {
     .el-dropdown-link {
       position: relative;
       display: inline-block;
-      width: 100px;
-      text-align: center;
+      width: 110px;
       vertical-align: middle;
       color: #fff;
       cursor: pointer;
@@ -246,5 +253,17 @@ export default {
   .el-dropdown-menu__item {
     text-align: center;
   }
+}
+
+.languageImage {
+  width: 30px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.languageImageTop {
+  width: 30px;
+  height: 25px;
+  vertical-align: middle;
 }
 </style>
