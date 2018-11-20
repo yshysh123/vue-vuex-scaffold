@@ -26,7 +26,8 @@
           v-if="showForm.sex">
           <el-form-item :label="$t('user.sex')"
             prop="sex">
-            <el-select v-model="ruleForm.sex"
+            <el-select filterable
+              v-model="ruleForm.sex"
               :placeholder="$t('user.sexPlaceHolder')">
               <el-option :label="$t('user.sexMan')"
                 value="1"></el-option>
@@ -95,13 +96,13 @@ export default {
             trigger: 'blur',
           },
         ],
-        sex: [
-          {
-            required: true,
-            message: this.$t('user.rulesSex'),
-            trigger: 'change',
-          },
-        ],
+        // sex: [
+        //   {
+        //     required: true,
+        //     message: this.$t('user.rulesSex'),
+        //     trigger: 'change',
+        //   },
+        // ],
         date: [
           {
             required: true,
@@ -144,6 +145,7 @@ export default {
             pageSize: query.pageSize ? query.pageSize : 10,
             pageNo: query.pageNo ? query.pageNo : 1,
           }
+          this.$router.push({ query: {} })
           let location = {
             query: params,
           }

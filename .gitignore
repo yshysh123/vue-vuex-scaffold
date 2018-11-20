@@ -2,6 +2,7 @@
 node_modules
 coverage
 /dist
+reports
 yarn.lock
 output.js
 
