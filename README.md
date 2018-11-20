@@ -3,7 +3,7 @@
 ### todo
 
 - templates模板 功能完善
-- queryForm 增加url带参数以及参数回填 - 50% 
+- queryForm 增加url带参数以及参数回填 - 100% 
 - markdownLint 
 - e2e 
 
@@ -84,16 +84,14 @@ yarn run test
 yarn run coverage
 ```
 
-- e2e 测试用例在`e2e/specs`文件夹，运行 e2e 测试
+- e2e 测试用例在`tests/e2e/specs`文件夹，运行 e2e 测试
   参考[nightwatch 手册](http://nightwatchjs.org/api)
 
 ```
 yarn run e2e
 ```
 
-nightwatch 启动脚本会尝试使用当前的开发环境，如果没有启动则自动打开一个新的 webpackDevServer 服务，使用 webpack.config 文件中的端口号，并运行 e2e 测试用例。
-如果使用域名测试，需要配置本地 hosts 指向配置的域名后，将域名改为
-使用了一些额外的[nightwatch-helpers](https://www.npmjs.com/package/nightwatch-helpers)(尤大神作品)增强工具。
+nightwatch 启动脚本会尝试使用当前的开发环境，所以请运行yarn start或 yarn run start:koa 之后再运行测试
 
 - 使用 changelog 脚本自动生成 CHANGELOG.md
 
