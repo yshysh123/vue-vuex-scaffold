@@ -2,7 +2,7 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-  'default e2e tests': browser => {
+  'test user page': browser => {
     browser
       .url(process.env.VUE_DEV_SERVER_URL)
       .maximizeWindow()
@@ -29,14 +29,14 @@ module.exports = {
         '2018-11-19',
       )
       .pause(1000)
-      .click('//*[@id="app"]/div[3]/div[1]/div[1]') // 點擊登入按鈕
+      .click('//*[@id="app"]/div[3]/div[1]/div[1]')
       .click(
         '//*[@id="app"]/div[3]/div[1]/div[2]/div/form/div[2]/div/div/button[1]',
-      ) // 點擊登入按鈕
-      .pause(1000) // 等待 1 秒
+      )
+      .pause(1000)
       .assert.urlContains(
         'http://localhost:8081/User?pageNo=1&pageSize=10&name=yush&age=29&date=2018-11-19&x=',
-      ) // 確定網址是否包含 http://www.ruten.com.tw/
+      )
       .end()
   },
 }
