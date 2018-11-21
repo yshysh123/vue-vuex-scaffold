@@ -3,9 +3,8 @@
 ### todo
 
 - templates模板 功能完善
-- queryForm 增加url带参数以及参数回填 - 100% 
 - markdownLint 
-- e2e 
+- e2e  使用nightwatch 进度60%
 
 ### feature
 
@@ -32,6 +31,7 @@
 - 单元测试不断更新 ing 目前单元测试进度 50% 可使用 yarn run coverage 进行查看。
 - 增加对echarts的简单封装
 - 本地server使用express和koa2 2种方式，具体内容见文件夹server以及koa。
+- queryForm 增加url带参数以及参数回填 - 100% 
 
 ### VS code 插件配置
 
