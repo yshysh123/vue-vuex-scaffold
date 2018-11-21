@@ -4,7 +4,7 @@
 
 - templates模板 功能完善
 - markdownLint 
-- e2e  使用nightwatch 进度60%
+
 
 ### feature
 
@@ -32,6 +32,7 @@
 - 增加对echarts的简单封装
 - 本地server使用express和koa2 2种方式，具体内容见文件夹server以及koa。
 - queryForm 增加url带参数以及参数回填 - 100% 
+- e2e  使用nightwatch 100%
 
 ### VS code 插件配置
 
