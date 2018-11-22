@@ -31,7 +31,7 @@ module.exports = () => {
               {
                 type: 'input',
                 name: 'api',
-                message: 'Please input default api:',
+                message: 'Please input default table api:',
               },
             ])
             .then(allKeys => {
@@ -51,7 +51,7 @@ module.exports = () => {
               {
                 type: 'input',
                 name: 'api',
-                message: 'Please input default api:',
+                message: 'Please input default table api:',
               },
             ])
             .then(tableKeys => {
