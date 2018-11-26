@@ -2,7 +2,7 @@
 
 ### todo
 
-- templates模板 功能完善 10% 
+- templates模板 功能完善 30% 
 - markdownLint 
 
 
