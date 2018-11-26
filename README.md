@@ -4,6 +4,7 @@
 
 - templates模板 功能完善 30% 
 - markdownLint 
+- 增加vue SPA路由骨架屏 
 
 
 ### feature
