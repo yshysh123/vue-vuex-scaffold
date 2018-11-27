@@ -1,13 +1,12 @@
-## vue 项目前端脚手架
+# vue 项目前端脚手架
 
-### todo
+## todo
 
-- templates模板 功能完善 30% 
-- markdownLint 
-- 增加vue SPA路由骨架屏 
+- templates 模板 功能完善 30%
+- markdownLint
+- 增加 vue SPA 路由骨架屏
 
-
-### feature
+## feature
 
 - follow latest vue, vue-cli, vue-router vuex webpack version
 - use eslint-config-airbnb
@@ -23,80 +22,82 @@
 - add commitizen and commitlint for git commit format
 - UI 库使用 element 按需加载 对应使用组件在 src/plugins 里
 - 使用 webpack-bundle-analyzer，查看打包文件体积和内容，不用时候注释掉
-- 增加换肤功能，如果需要修改默认颜色，见 components/ThemePicker.vue。颜色渐变数组放入rootStore，使用方法见Header、sider
+- 增加换肤功能，如果需要修改默认颜色，见 components/ThemePicker.vue。颜色渐变数组放入 rootStore，使用方法见 Header、sider
 - 增加全局加载条。如需修改，在 axios 的配置文件里修改。
 - 项目启用 node 子进程，router、store、server 接口不需要手动配置，会根据对应文件夹下文件自动加入配置（需重启 webpack）
   - router 会根据 src/views/的文件自动生成 router.js
   - store 会根据 src/store 的文件自动生成 store.js
   - server/app.js 会根据 server/routes 自动生成更新 app.js
 - 单元测试不断更新 ing 目前单元测试进度 50% 可使用 yarn run coverage 进行查看。
-- 增加对echarts的简单封装
-- 本地server使用express和koa2 2种方式，具体内容见文件夹server以及koa。
-- queryForm 增加url带参数以及参数回填 - 100% 
-- e2e  使用nightwatch 100%
+- 增加对 echarts 的简单封装
+- 本地 server 使用 express 和 koa2 2 种方式，具体内容见文件夹 server 以及 koa。
+- queryForm 增加 url 带参数以及参数回填 - 100%
+- e2e 使用 nightwatch 100%
 
-### VS code 插件配置
+## VS code 插件配置
 
 - 安装 stylelint 以及 ESLint 以及 Prettier 插件，然后按照.vscode 里面的配置，配置完成。编辑器会自动修改 eslint 错误。
 - 安装 vetur 插件配置 For Vue
 
-### 脚本命令
+## 脚本命令
 
-- 新增页面(会根据选择 创建是否带表格、search的页面。目前search和表格字段不支持定制，后期完善定制字段)
-```
+- 新增页面(会根据选择 创建是否带表格、search 的页面。目前 search 和表格字段不支持定制，后期完善定制字段)
+
+```bash
 yarn run addPage
 ```
 
 - 删除页面
-```
+
+```bash
 yarn run deletePage
 ```
 
-
-### 常用命令
+## 常用命令
 
 - 本地模拟接口开发模式:express
 
-```
+```bash
 yarn start
 ```
 
 - 本地模拟接口开发模式：koa2
-```
+
+```bash
 yarn run start:koa
 ```
 
 - 打包发布
 
-```
+```bash
 yarn run build
 ```
 
 - 单元测试文件夹`__tests__`，运行单元测试用例
   参考[jest 文档](https://facebook.github.io/jest/)
 
-```
+```bash
 yarn run test
 ```
 
 - 单元测试代码覆盖率
   调用 jest 生成 coverage 文件夹，查看里面的 index.html。
 
-```
+```bash
 yarn run coverage
 ```
 
 - e2e 测试用例在`tests/e2e/specs`文件夹，运行 e2e 测试
   参考[nightwatch 手册](http://nightwatchjs.org/api)
 
-```
+```bash
 yarn run e2e
 ```
 
-nightwatch 启动脚本会尝试使用当前的开发环境，所以请运行yarn start或 yarn run start:koa 之后再运行测试
+nightwatch 启动脚本会尝试使用当前的开发环境，所以请运行 yarn start 或 yarn run start:koa 之后再运行测试
 
 - 使用 changelog 脚本自动生成 CHANGELOG.md
 
-```
+```bash
 yarn run changelog
 ```
