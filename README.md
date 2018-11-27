@@ -4,8 +4,6 @@
 
 - templates模板 功能完善 30% 
 - markdownLint 
-- 增加vue SPA路由骨架屏 
-
 
 ### feature
 
@@ -34,6 +32,7 @@
 - 本地server使用express和koa2 2种方式，具体内容见文件夹server以及koa。
 - queryForm 增加url带参数以及参数回填 - 100% 
 - e2e  使用nightwatch 100%
+- 增加vue SPA路由骨架屏 具体修改在components/Skeleton以及webpack配置里修改样式及路由
 
 ### VS code 插件配置
 
