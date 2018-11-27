@@ -4,9 +4,8 @@
 
 - templates 模板 功能完善 30%
 - markdownLint
-- 增加 vue SPA 路由骨架屏
 
-## feature
+### feature
 
 - follow latest vue, vue-cli, vue-router vuex webpack version
 - use eslint-config-airbnb
@@ -33,6 +32,7 @@
 - 本地 server 使用 express 和 koa2 2 种方式，具体内容见文件夹 server 以及 koa。
 - queryForm 增加 url 带参数以及参数回填 - 100%
 - e2e 使用 nightwatch 100%
+- 增加 vue SPA 路由骨架屏 具体修改在 components/Skeleton 以及 webpack 配置里修改样式及路由
 
 ## VS code 插件配置
 
