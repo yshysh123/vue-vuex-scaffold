@@ -1,6 +1,6 @@
-<p align="center"># vue 项目前端脚手架</p>
+# vue 项目前端脚手架
 
-<p align="center">[![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold)
+<center>[![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold)</center>
 
 ## todo
 
