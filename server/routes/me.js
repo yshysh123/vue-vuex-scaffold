@@ -7,8 +7,8 @@ router.get('/user/getUserInfo', (req, res) => {
   res.type('json')
   const ret = {}
   const data = {
-    name: '于偲鸿',
-    erp: 'yusihong1',
+    name: 'yush',
+    erp: 'yush1',
   }
   Object.assign(ret, resultData, {
     data,

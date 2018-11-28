@@ -160,6 +160,11 @@ process.on('message', answers => {
     templatePlaceholder,
   )
   console.log(
+    chalk.red(
+      `\n √ 请将${upperFirst(
+        answers.pageName,
+      )}页面加入对应的koa和server的menu中!`,
+    ),
     chalk.green(`\n √ 创建${upperFirst(answers.pageName)}页面 completed!`),
     chalk.green(`\n √ 请重启webpack，刷新路由!`),
   )
