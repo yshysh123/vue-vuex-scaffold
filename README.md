@@ -1,5 +1,7 @@
 # vue 项目前端脚手架
 
+![Image text](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)
+
 ## todo
 
 - templates 模板 功能完善 30%
