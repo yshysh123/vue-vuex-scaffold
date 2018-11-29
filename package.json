@@ -97,7 +97,7 @@
     "less-loader": "^4.1.0",
     "lint-staged": "^7.2.2",
     "nightwatch-html-reporter": "^2.0.6",
-    "nodemon": "^1.18.4",
+    "nodemon": "^1.18.7",
     "prettier": "^1.14.3",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^9.6.0",
