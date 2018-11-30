@@ -56,15 +56,26 @@ describe('QueryForm.vue', () => {
     wrapper.setMethods({
       resetForm: mockFn2,
     })
-    wrapper.vm.ruleForm = {
-      name: '111',
-      sex: '111',
-      date: '2019-01-01',
-      age: '18',
-    }
     const button = wrapper.findAll('el-button').at(1)
     expect(mockFn2).not.toHaveBeenCalled()
     button.trigger('click')
     expect(mockFn2).toHaveBeenCalled()
   })
+
+  // it('测试resetQueryForm内部', () => {
+  //   wrapper.vm.ruleForm = {
+  //     name: '111',
+  //     sex: '111',
+  //     date: '2019-01-01',
+  //     age: '18',
+  //   }
+  //   // console.log(wrapper.vm.$refs.ruleForm.resetFields())
+  //   wrapper.vm.resetForm('ruleForm')
+  //   expect(wrapper.vm.ruleForm).toEqual({
+  //     name: '111',
+  //     sex: '111',
+  //     date: '2019-01-01',
+  //     age: '18',
+  //   })
+  // })
 })

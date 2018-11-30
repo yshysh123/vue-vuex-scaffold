@@ -64,8 +64,8 @@ export default {
       let params = {
         ...query,
         ...this.queryFormStore,
-        pageSize: this.lists.pageSize,
-        pageNo: pageNo,
+        pageSize: this.lists.pageSize || 20,
+        pageNo: pageNo || 1,
       }
       this.$store.dispatch(this.store, params)
       let queryForm = Object.assign({}, params)

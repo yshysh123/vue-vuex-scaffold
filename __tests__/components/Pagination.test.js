@@ -50,4 +50,16 @@ describe('QueryForm.vue', () => {
     input.trigger('size-change')
     expect(actions['UserStore/fetchLists']).toHaveBeenCalled()
   })
+
+  it('测试handleSizeChange方法内部', () => {
+    const spy = jest.spyOn(wrapper.vm.$router, 'push')
+    expect(spy).not.toHaveBeenCalled()
+    wrapper.vm.handleCurrentChange('5')
+    expect(spy).toHaveBeenCalledWith({
+      query: {
+        pageNo: '5',
+        pageSize: 20,
+      },
+    })
+  })
 })

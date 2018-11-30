@@ -39,6 +39,7 @@ describe('Header.vue', () => {
       localVue,
       mocks: {
         $t: () => 'some specific text',
+        $i18n: () => {},
       },
     })
   })
@@ -62,6 +63,13 @@ describe('Header.vue', () => {
     expect(mockFn).toHaveBeenCalled()
   })
 
+  it('测试handleCommand方法内部', () => {
+    const spy = jest.spyOn(wrapper.vm.$router, 'push')
+    expect(spy).not.toHaveBeenCalled()
+    wrapper.vm.handleCommand('loginout')
+    expect(spy).toHaveBeenCalled()
+  })
+
   it('测试collapseChage方法', () => {
     const mockFn = jest.fn()
     wrapper.setMethods({
@@ -70,6 +78,12 @@ describe('Header.vue', () => {
     expect(mockFn).not.toHaveBeenCalled()
     wrapper.find('.collapse-btn').trigger('click')
     expect(mockFn).toHaveBeenCalled()
+  })
+
+  it('测试collapseChage内部方法', () => {
+    wrapper.vm.collapse = true
+    wrapper.vm.collapseChage()
+    wrapper.vm.collapse = false
   })
 
   it('测试handleSelect方法', () => {
@@ -88,6 +102,15 @@ describe('Header.vue', () => {
       .findAll('el-dropdown')
       .at(0)
       .trigger('command')
+    expect(mockFn).toHaveBeenCalled()
+  })
+
+  it('测试handleSetLanguage方法内部', () => {
+    const mockFn = jest.fn()
+    wrapper.setMethods({
+      getLanguage: mockFn,
+    })
+    wrapper.vm.handleSetLanguage('en')
     expect(mockFn).toHaveBeenCalled()
   })
 

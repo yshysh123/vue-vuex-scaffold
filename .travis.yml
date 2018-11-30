@@ -11,12 +11,14 @@ cache:
 # S: Build Lifecycle
 install:
   - yarn install
+  - npm install -g codecov
 
 before_script:
 
 # 无其他依赖项所以执行npm run build 构建就行了
 script:
   - yarn run build
+  - jest && codecov
 
 after_script:
   - cd ./dist

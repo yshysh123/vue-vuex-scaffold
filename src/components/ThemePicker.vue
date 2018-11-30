@@ -14,23 +14,25 @@ export default {
     return {
       chalk: '', // content of theme-chalk css
       theme: ORIGINAL_THEME,
+      themeCluster: [],
+      originalCluster: [],
     }
   },
   watch: {
     theme(val, oldVal) {
       if (typeof val !== 'string') return
-      const themeCluster = this.getThemeCluster(val.replace('#', ''))
-      const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
-      this.setColor(themeCluster)
+      this.themeCluster = this.getThemeCluster(val.replace('#', ''))
+      this.originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
+      this.setColor(this.themeCluster)
       const getHandler = (variable, id) => {
         return () => {
-          const originalCluster = this.getThemeCluster(
+          this.originalCluster = this.getThemeCluster(
             ORIGINAL_THEME.replace('#', ''),
           )
           const newStyle = this.updateStyle(
             this[variable],
-            originalCluster,
-            themeCluster,
+            this.originalCluster,
+            this.themeCluster,
           )
 
           let styleTag = document.getElementById(id)
@@ -65,8 +67,8 @@ export default {
         if (typeof innerText !== 'string') return
         style.innerText = this.updateStyle(
           innerText,
-          originalCluster,
-          themeCluster,
+          this.originalCluster,
+          this.themeCluster,
         )
       })
       this.$message({
