@@ -1,6 +1,7 @@
 # vue 项目前端脚手架
 
-[![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold)
+[![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold) 
+[![coverage](https://img.shields.io/codecov/c/github/yshysh123/vue-vuex-scaffold/master.svg)](https://codecov.io/gh/yshysh123/vue-vuex-scaffold)
 
 ## todo
 
