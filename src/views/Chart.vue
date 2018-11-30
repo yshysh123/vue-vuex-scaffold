@@ -1,18 +1,14 @@
 <template>
   <div class="Chart">
-    <Echarts :options="options"
-      autoResize></Echarts>
+    <vCharts :options="options"
+      style="width:100%;height:400px"
+      autoResize=true />
   </div>
 </template>
 
 <script>
-import Echarts from 'components/echarts/Echarts.vue'
-import 'echarts/lib/chart/line'
 export default {
   name: 'Chart',
-  components: {
-    Echarts,
-  },
   data() {
     return {
       options: {

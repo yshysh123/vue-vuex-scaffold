@@ -32,6 +32,7 @@ describe('Header.vue', () => {
         },
       },
     })
+
     wrapper = mount(Header, {
       store,
       router,

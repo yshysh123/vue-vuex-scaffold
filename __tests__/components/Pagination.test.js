@@ -1,11 +1,15 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import user from 'fixture/user.json'
 import Vuex from 'vuex'
+import VueRouter from 'vue-router'
 import Pagination from 'src/components/Pagination.vue'
 
 const localVue = createLocalVue()
 
+localVue.use(VueRouter)
 localVue.use(Vuex)
+
+const router = new VueRouter()
 
 describe('QueryForm.vue', () => {
   let actions
@@ -25,6 +29,7 @@ describe('QueryForm.vue', () => {
         store: 'UserStore/fetchLists',
         storeLists: user,
       },
+      router,
       store,
       localVue,
     })

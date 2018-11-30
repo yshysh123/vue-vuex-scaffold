@@ -17,6 +17,7 @@ import siderVue from './components/Header.vue'
 import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'
 import { getHeaderKeyByRouter } from 'tool/getHeaderIndexByRouter'
 import { mapMutations } from 'vuex'
+import NProgress from 'nprogress'
 
 export default {
   name: 'app',
@@ -24,6 +25,7 @@ export default {
     return {
       transitionName: 'slide-left',
       activeIndex2: '',
+      timer: null,
     }
   },
   components: {
@@ -35,8 +37,20 @@ export default {
     ...mapMutations('HeaderStore', ['setActiveIndex']),
     ...mapMutations('SiderStore', ['setItems']),
   },
+  mounted() {},
+  destroyed() {
+    clearTimeout(this.timer)
+  },
   watch: {
     $route(to, from) {
+      /**
+       * 开启滚动条
+       */
+      NProgress.start()
+      this.timer = setTimeout(() => NProgress.done(), 1000)
+      /**
+       * 路由切换动画
+       */
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length
       this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
@@ -78,7 +92,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

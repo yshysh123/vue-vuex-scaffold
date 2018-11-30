@@ -38,7 +38,7 @@ describe('userStore', () => {
     // expect(lists).toEqual([1, 2, 3])
     expect(spy).toHaveBeenCalledTimes(1)
     expect(spy).toHaveBeenLastCalledWith('user/lists', {
-      params: { pageNo: 2, pageSize: 10 },
+      query: { pageNo: 2, pageSize: 10 },
     })
   })
 })

@@ -8,6 +8,10 @@ module.exports = {
     // 打开开发阶段有骨架屏样式，但是所有样式无法热加载；关闭开发阶段无法加载骨架屏样式
     extract: true,
   },
+  transpileDependencies: [
+    /\/node_modules\/vue-echarts\//,
+    /\/node_modules\/resize-detector\//,
+  ],
   configureWebpack: {
     // plugins: [new BundleAnalyzerPlugin()],
     plugins: [
