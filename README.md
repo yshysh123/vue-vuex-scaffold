@@ -1,13 +1,14 @@
 # vue 项目前端脚手架
 
-[![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold) 
+[![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold)
 [![coverage](https://img.shields.io/codecov/c/github/yshysh123/vue-vuex-scaffold/master.svg)](https://codecov.io/gh/yshysh123/vue-vuex-scaffold)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## todo
 
 - templates 模板 功能完善 30%
-- 增加单元测试覆盖率 目前80%+
-- ~~markdownLint vs code中markdownLint插件足够用了~~
+- 增加单元测试覆盖率 目前 80%+
+- ~~markdownLint vs code 中 markdownLint 插件足够用了~~
 
 ### feature
 
