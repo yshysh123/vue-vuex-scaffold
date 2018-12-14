@@ -12,6 +12,7 @@ module.exports = {
     /\/node_modules\/vue-echarts\//,
     /\/node_modules\/resize-detector\//,
   ],
+  baseUrl: process.env.NODE_ENV === 'production' ? './' : '',
   configureWebpack: {
     // plugins: [new BundleAnalyzerPlugin()],
     plugins: [
