@@ -7,7 +7,7 @@
 ## todo
 
 - templates 模板 功能完善 30%
-- 增加单元测试覆盖率 目前 80%+
+- 增加单元测试覆盖率 目前 85%+
 - ~~markdownLint vs code 中 markdownLint 插件足够用了~~
 
 ### feature
