@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold)
 [![coverage](https://img.shields.io/codecov/c/github/yshysh123/vue-vuex-scaffold/master.svg)](https://codecov.io/gh/yshysh123/vue-vuex-scaffold)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![stars](https://img.shields.io/github/stars/yshysh123/vue-vuex-scaffold.svg](https://github.com/yshysh123/vue-vuex-scaffold/)
+[![stars](https://img.shields.io/github/stars/yshysh123/vue-vuex-scaffold.svg)](https://github.com/yshysh123/vue-vuex-scaffold/)
 
 ## todo
 
