@@ -46,6 +46,13 @@
 - 安装 stylelint 以及 ESLint 以及 Prettier 插件，然后按照.vscode 里面的配置，配置完成。编辑器会自动修改 eslint 错误。
 - 安装 vetur 插件配置 For Vue
 
+## 启动配置
+
+- git clone https://github.com/yshysh123/vue-vuex-scaffold.git
+- cd vue-vuex-scaffold
+- yarn or npm install
+- yarn start or npm start
+
 ## 脚本命令
 
 - 新增页面(会根据选择 创建是否带表格、search 的页面。目前 search 和表格字段不支持定制，后期完善定制字段)
