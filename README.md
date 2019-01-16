@@ -3,11 +3,15 @@
 [![Build Status](https://travis-ci.org/yshysh123/vue-vuex-scaffold.svg?branch=master)](https://travis-ci.org/yshysh123/vue-vuex-scaffold)
 [![coverage](https://img.shields.io/codecov/c/github/yshysh123/vue-vuex-scaffold/master.svg)](https://codecov.io/gh/yshysh123/vue-vuex-scaffold)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![stars](https://img.shields.io/github/stars/yshysh123/vue-vuex-scaffold.svg)](https://github.com/yshysh123/vue-vuex-scaffold/)
+[![fork](https://img.shields.io/github/forks/yshysh123/vue-vuex-scaffold.svg)](https://github.com/yshysh123/vue-vuex-scaffold/)
+[![issues](https://img.shields.io/github/issues/yshysh123/vue-vuex-scaffold.svg)](https://github.com/yshysh123/vue-vuex-scaffold/issues)
 
 ## todo
 
 - templates 模板 功能完善 30%
 - 增加单元测试覆盖率 目前 85%+
+- 增加gzip压缩，减少服务器压力
 - ~~markdownLint vs code 中 markdownLint 插件足够用了~~
 
 ### feature
@@ -44,6 +48,13 @@
 
 - 安装 stylelint 以及 ESLint 以及 Prettier 插件，然后按照.vscode 里面的配置，配置完成。编辑器会自动修改 eslint 错误。
 - 安装 vetur 插件配置 For Vue
+
+## 启动配置
+
+- git clone https://github.com/yshysh123/vue-vuex-scaffold.git
+- cd vue-vuex-scaffold
+- yarn or npm install
+- yarn start or npm start
 
 ## 脚本命令
 
