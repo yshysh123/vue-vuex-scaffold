@@ -1,7 +1,7 @@
 const devServerConfig = require('./build/webpackResolve')
 const path = require('path')
 const SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 // 是否使用gzip
 const productionGzip = true
@@ -22,7 +22,7 @@ module.exports = {
     const myConfig = {}
     myConfig.plugins = []
     if (process.env.NODE_ENV === 'production') {
-      myConfig.plugins.push(new BundleAnalyzerPlugin())
+      // myConfig.plugins.push(new BundleAnalyzerPlugin())
       if (productionGzip) {
         myConfig.plugins.push(
           new CompressionWebpackPlugin({
