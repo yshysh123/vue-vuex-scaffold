@@ -11,6 +11,7 @@
 
 - templates 模板 功能完善 30%
 - 增加单元测试覆盖率 目前 85%+
+- 打包优化及性能优化
 - ~~增加gzip压缩，减少服务器压力~~
 - ~~markdownLint vs code 中 markdownLint 插件足够用了~~
 
