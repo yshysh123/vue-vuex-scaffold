@@ -6,6 +6,7 @@ module.exports = {
     'src/views/**/*.{js,vue}',
     'src/store/**/*.{js,vue}',
     'src/tool/**/*.{js,vue}',
+    '!src/views/Chart.{js,vue}',
   ],
   transformIgnorePatterns: [
     'node_modules/(?!(babel-jest|jest-vue-preprocessor)/)',

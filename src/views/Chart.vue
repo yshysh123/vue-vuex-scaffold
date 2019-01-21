@@ -2,36 +2,37 @@
   <div class="Chart">
     <el-row :gutter="20">
       <el-col :span="12">
-        <vCharts :options="options"
-          style="width:100%;height:400px"
-          autoResize=true />
+        <div ref="chart1"
+          style="width:100%;height:400px" />
       </el-col>
       <el-col :span="12">
-        <vCharts :options="options2"
-          style="width:100%;height:400px"
-          autoResize=true />
+        <div ref="chart2"
+          style="width:100%;height:400px" />
       </el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <vCharts :options="options3"
-          style="width:100%;height:400px"
-          autoResize=true />
+        <div ref="chart3"
+          style="width:100%;height:400px" />
       </el-col>
       <el-col :span="12">
-        <vCharts :options="options4"
-          style="width:100%;height:400px"
-          autoResize=true />
+        <div ref="chart4"
+          style="width:100%;height:400px" />
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
+import echarts from '../plugins/echarts'
 export default {
   name: 'Chart',
   data() {
     return {
+      chart1: {},
+      chart2: {},
+      chart3: {},
+      chart4: {},
       options: {
         xAxis: {
           type: 'category',
@@ -247,8 +248,35 @@ export default {
     }
   },
   computed: {},
-  methods: {},
-  mounted() {},
+  methods: {
+    drawChart() {
+      this.chart1 = echarts.init(this.$refs.chart1)
+      // 绘制条形图
+      this.chart1.setOption(this.options)
+      this.chart2 = echarts.init(this.$refs.chart2)
+      // 绘制条形图
+      this.chart2.setOption(this.options2)
+      this.chart3 = echarts.init(this.$refs.chart3)
+      // 绘制条形图
+      this.chart3.setOption(this.options3)
+      this.chart4 = echarts.init(this.$refs.chart4)
+      // 绘制条形图
+      this.chart4.setOption(this.options4)
+      window.addEventListener('resize', this.resize)
+    },
+    resize() {
+      this.chart1.resize()
+      this.chart2.resize()
+      this.chart3.resize()
+      this.chart4.resize()
+    },
+  },
+  mounted() {
+    this.drawChart()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.resize)
+  },
 }
 </script>
 

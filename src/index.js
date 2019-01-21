@@ -1,7 +1,4 @@
 import { getHeaderIndexByRouter } from 'tool/getHeaderIndexByRouter'
-import ECharts from 'vue-echarts'
-import 'echarts/lib/chart/line'
-import 'echarts/lib/component/tooltip'
 import 'nprogress/nprogress.css'
 import Vue from 'vue'
 import App from './App.vue'
@@ -13,8 +10,6 @@ import './style/index.less'
 import './registerServiceWorker'
 import './plugins/element'
 import { base as api } from './api'
-
-Vue.component('vCharts', ECharts)
 
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
