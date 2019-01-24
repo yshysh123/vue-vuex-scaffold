@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SoundEffect from '@/components/SoundEffect.vue'
+import SoundEffect from './components/SoundEffect.vue'
 import headerVue from './components/Sider.vue'
 import siderVue from './components/Header.vue'
 import getSiderByHeaderIndex from 'tool/getSiderByHeaderIndex'

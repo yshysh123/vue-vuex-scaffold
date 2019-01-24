@@ -55,7 +55,7 @@
     "register-service-worker": "^1.0.0",
     "resize-detector": "^0.1.9",
     "scrollreveal": "^4.0.5",
-    "vue": "^2.5.17",
+    "vue": "^2.5.22",
     "vue-i18n": "^8.2.1",
     "vue-router": "^3.0.1",
     "vue-skeleton-webpack-plugin": "^1.2.2",

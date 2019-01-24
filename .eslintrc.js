@@ -52,6 +52,7 @@ module.exports = {
           'config',
           'option',
           'item',
+          'args',
         ],
       },
     ],

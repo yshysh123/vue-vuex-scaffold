@@ -7,20 +7,52 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzip = true
 // 需要gzip压缩的文件后缀
 const productionGzipExtensions = ['js', 'css']
+// 区分生产环境
+const isProd = process.env.NODE_ENV === 'production'
+// 区分版本号
+const lastVersion = new Date().getTime()
+// posix兼容方式处理路径
+const assetsDir = 'static'
+const posixJoin = _path => path.posix.join(assetsDir, _path)
+
+// cdn开关
+const OPENCDN = true
+const webpackHtmlOptions = {
+  externals: {
+    vue: 'Vue',
+    'vue-router': 'VueRouter',
+    vuex: 'Vuex',
+  },
+  cdn: {
+    // 生产环境
+    build: {
+      js: [
+        'https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js',
+        'https://cdn.jsdelivr.net/npm/vue-router@3.0.1/dist/vue-router.min.js',
+        'https://unpkg.com/vuex@3.0.1/dist/vuex.min.js',
+      ],
+    },
+  },
+}
+
 module.exports = {
   css: {
     // 打开开发阶段有骨架屏样式，但是所有样式无法热加载；关闭开发阶段无法加载骨架屏样式
-    extract: true,
+    extract: {
+      filename: posixJoin(`css/${lastVersion}-[name].[contenthash:8].css`),
+      chunkFilename: posixJoin(`css/${lastVersion}-[name].[contenthash:8].css`),
+    },
   },
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '',
-  productionSourceMap: process.env.NODE_ENV !== 'production',
-  configureWebpack: () => {
-    const myConfig = {}
-    myConfig.plugins = []
-    if (process.env.NODE_ENV === 'production') {
-      // myConfig.plugins.push(new BundleAnalyzerPlugin())
+  publicPath: isProd ? './' : '',
+  productionSourceMap: !isProd,
+  configureWebpack: config => {
+    config.resolve = {
+      ...devServerConfig,
+    }
+    if (isProd) {
+      // config.plugins.push(new BundleAnalyzerPlugin())
       if (productionGzip) {
-        myConfig.plugins.push(
+        config.plugins.push(
           new CompressionWebpackPlugin({
             test: new RegExp(`\\.(${productionGzipExtensions.join('|')})$`),
             threshold: 8192,
@@ -28,8 +60,12 @@ module.exports = {
           }),
         )
       }
+      // 开启cdn状态：externals不进入webpack打包
+      if (OPENCDN) {
+        config.externals = webpackHtmlOptions.externals
+      }
     }
-    myConfig.plugins.push(
+    config.plugins.push(
       new SkeletonWebpackPlugin({
         webpackConfig: {
           entry: {
@@ -57,8 +93,8 @@ module.exports = {
         },
       }),
     )
-    if (process.env.NODE_ENV === 'development') {
-      myConfig.devServer = {
+    if (!isProd) {
+      config.devServer = {
         historyApiFallback: true,
         disableHostCheck: true,
         host: '0.0.0.0',
@@ -78,9 +114,34 @@ module.exports = {
         before() {},
       }
     }
-    myConfig.resolve = {
-      ...devServerConfig,
-    }
-    return myConfig
+  },
+  chainWebpack: config => {
+    config.performance.set('hints', false)
+    // 将版本号写入环境变量
+    config.plugin('define').tap(args => {
+      args[0].app_build_version = lastVersion
+      return args
+    })
+    config.when(isProd, configs =>
+      // 生产环境js增加版本号
+      configs.output
+        .set('filename', posixJoin(`js/${lastVersion}-[name].[chunkhash].js`))
+        .set(
+          'chunkFilename',
+          posixJoin(`js/${lastVersion}-[id].[chunkhash].js`),
+        ),
+    )
+    /**
+     * 添加CDN参数到htmlWebpackPlugin配置中， 修改 public/index.html
+     */
+    config.plugin('html').tap(args => {
+      // 生产环境将cdn写入webpackHtmlOptions，在public/index.html应用
+      if (isProd && OPENCDN) {
+        args[0].cdn = webpackHtmlOptions.cdn.build
+      }
+      // dns预加载
+      args[0].dnsPrefetch = webpackHtmlOptions.dnsPrefetch
+      return args
+    })
   },
 }
