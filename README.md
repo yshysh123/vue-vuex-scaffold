@@ -12,7 +12,7 @@
 - templates 模板 功能完善 30%
 - 增加单元测试覆盖率 目前 85%+
 - 打包优化及性能优化
-  - vue-echarts打包体积过大 寻找方案
+  -  ~~vue-echarts打包体积过大 寻找方案~~
 - ~~增加gzip压缩，减少服务器压力~~
 - ~~markdownLint vs code 中 markdownLint 插件足够用了~~
 
@@ -39,8 +39,7 @@
   - store 会根据 src/store 的文件自动生成 store.js
   - server/app.js 会根据 server/routes 自动生成更新 app.js
 - 单元测试不断更新 ing 目前单元测试进度 50% 可使用 yarn run coverage 进行查看。
-- ~~增加对 echarts 的简单封装~~
-- 使用vue-echart按需引用
+- 使用原生echarts没有封装，如有封装参考vue-echarts或自行封装
 - 本地 server 使用 express 和 koa2 2 种方式，具体内容见文件夹 server 以及 koa。
 - queryForm 增加 url 带参数以及参数回填 - 100%
 - e2e 使用 nightwatch 100%
