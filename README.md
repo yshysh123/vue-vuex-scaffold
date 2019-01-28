@@ -12,8 +12,8 @@
 - templates 模板 功能完善 30%
 - 增加单元测试覆盖率 目前 85%+
 - 打包优化及性能优化
-  -  ~~vue-echarts打包体积过大 寻找方案~~
-- ~~增加gzip压缩，减少服务器压力~~
+  - ~~vue-echarts 打包体积过大 寻找方案~~
+- ~~增加 gzip 压缩，减少服务器压力~~
 - ~~markdownLint vs code 中 markdownLint 插件足够用了~~
 
 ### feature
@@ -26,7 +26,7 @@
 - build 文件夹存放代码构建脚本。
 - 最终发布文件放到 dist 文件夹。
 - 增加国际化配置，使用 i18n，配置具体使用方式见 i18n 以及 home 页面
-- 使用 axios，配置见/tool/axios.js
+- 使用 Fxios，是同事对 axios+fetch 的封装，配置见/tool/axios.js
 - webpack 配置文件在 build/config.js
 - 所有接口地址都在 src/api/index.js 中配置，避免接口到处硬编码。
 - add commitizen and commitlint for git commit format
@@ -39,7 +39,7 @@
   - store 会根据 src/store 的文件自动生成 store.js
   - server/app.js 会根据 server/routes 自动生成更新 app.js
 - 单元测试不断更新 ing 目前单元测试进度 50% 可使用 yarn run coverage 进行查看。
-- 使用原生echarts没有封装，如有封装参考vue-echarts或自行封装
+- 使用原生 echarts 没有封装，如有封装参考 vue-echarts 或自行封装
 - 本地 server 使用 express 和 koa2 2 种方式，具体内容见文件夹 server 以及 koa。
 - queryForm 增加 url 带参数以及参数回填 - 100%
 - e2e 使用 nightwatch 100%

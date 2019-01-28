@@ -22,14 +22,20 @@ const webpackHtmlOptions = {
     vue: 'Vue',
     'vue-router': 'VueRouter',
     vuex: 'Vuex',
+    axios: 'axios',
   },
   cdn: {
     // 生产环境
     build: {
       js: [
+        // vue
         'https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js',
+        // vue-router
         'https://cdn.jsdelivr.net/npm/vue-router@3.0.1/dist/vue-router.min.js',
+        // vuex
         'https://unpkg.com/vuex@3.0.1/dist/vuex.min.js',
+        // axios
+        '//cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js',
       ],
     },
   },
