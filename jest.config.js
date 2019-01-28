@@ -7,12 +7,14 @@ module.exports = {
     'src/store/**/*.{js,vue}',
     'src/tool/**/*.{js,vue}',
     '!src/views/Chart.{js,vue}',
+    '!src/tool/axios.{js,vue}',
   ],
   transformIgnorePatterns: [
     'node_modules/(?!(babel-jest|jest-vue-preprocessor)/)',
   ],
   // '<rootDir>/node_modules/(?!(babel-jest|jest-vue-preprocessor)/)',
   setupFiles: ['<rootDir>/jest/setup.js'],
+  setupTestFrameworkScriptFile: '<rootDir>/jest/afterSetup.js',
   testURL: 'http://localhost/',
   testMatch: ['<rootDir>/__tests__/**/?(*.)(spec|test).{js,jsx,mjs}'],
   transform: {
