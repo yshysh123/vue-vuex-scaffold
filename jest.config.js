@@ -29,6 +29,7 @@ module.exports = {
     '^tool/(.+)$': '<rootDir>/src/tool/$1',
     '^store/(.+)$': '<rootDir>/src/store/$1',
     '^src/(.+)$': '<rootDir>/src/$1',
+    '^plugins/(.+)$': '<rootDir>/src/plugins/$1',
     '^fixture/(.+)$': '<rootDir>/__tests__/fixture/$1',
   },
   moduleFileExtensions: ['js', 'jsx', 'json', 'vue'],

@@ -1,6 +1,6 @@
 import store from 'store/userStore'
-import axios from 'plugins/axios'
 import user from 'fixture/user.json'
+import axios from '../../src/plugins/axios'
 
 const {
   mutations: { setLists },
