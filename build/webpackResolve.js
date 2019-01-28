@@ -22,6 +22,7 @@ const alias = {
   style: resolvePath('./src/style'),
   locale: resolvePath('./src/locale'),
   src: resolvePath('./src'),
+  plugins: resolvePath('./src/plugins'),
   fixture: resolvePath('./__tests__/fixture'),
 }
 

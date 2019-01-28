@@ -1,5 +1,5 @@
 import store from 'store/userStore'
-import axios from 'tool/axios'
+import axios from 'plugins/axios'
 import user from 'fixture/user.json'
 
 const {

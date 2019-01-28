@@ -26,7 +26,7 @@
 - build 文件夹存放代码构建脚本。
 - 最终发布文件放到 dist 文件夹。
 - 增加国际化配置，使用 i18n，配置具体使用方式见 i18n 以及 home 页面
-- 使用 Fxios，是同事对 axios+fetch 的封装，配置见/tool/axios.js
+- 使用 Fxios，是同事对 axios+fetch 的封装，配置见/plugins/axios.js
 - webpack 配置文件在 build/config.js
 - 所有接口地址都在 src/api/index.js 中配置，避免接口到处硬编码。
 - add commitizen and commitlint for git commit format

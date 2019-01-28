@@ -1,4 +1,4 @@
-import axios from 'tool/axios'
+import axios from 'plugins/axios'
 import { user as api } from 'src/api'
 
 const mutations = {

@@ -11,7 +11,7 @@
 <script>
 import HelloWorld from 'components/HelloWorld'
 import ConfirmButton from 'components/ConfirmButton'
-import axios from 'tool/axios'
+import axios from 'plugins/axios'
 
 export default {
   name: 'home',

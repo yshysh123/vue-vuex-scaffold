@@ -1,4 +1,4 @@
-import axios from 'tool/axios'
+import axios from 'plugins/axios'
 
 const mutations = {
   setLists(state, param) {
