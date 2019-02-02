@@ -96,18 +96,11 @@ export default {
             trigger: 'blur',
           },
         ],
-        // sex: [
-        //   {
-        //     required: true,
-        //     message: this.$t('user.rulesSex'),
-        //     trigger: 'change',
-        //   },
-        // ],
         date: [
           {
             required: true,
             message: this.$t('user.rulesDate'),
-            trigger: 'change',
+            trigger: 'blur',
           },
         ],
         age: [
